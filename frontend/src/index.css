@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: whitesmoke;
+  padding: 1em;
+}
+
+button {
+  background-color: #52CC6F;
+  color: black;
+  padding: 0.5em 1em 0.5em 1em;
+  border: none;
+  width: fit-content;
+  margin: auto;
+  border-radius: 0.3em;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+header img {
+  width: 23%;
+}
+
+.header_links{
+  text-align: right;
+  padding: ;
+}
+
+.header_links a {
+  text-decoration: none;
+  color: #0A501E;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+#sign_in_link{
+  font-size: 1.3rem;
+}
+
+footer {
+  padding: 1.5em;
+  position: absolute;
+  bottom: 0;
+}
+
+footer img {
+  display: block;
+  margin-left: auto;
+  width: 28%;
+}
+
+#search_form {
+  width: 25%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+#search_form label {
+  padding-bottom: 0.2em;
+}
+
+#search_form select {
+  height: 01.5em;
+}
+
