@@ -13,7 +13,7 @@ const SearchForm = () => {
 
             <input type="time" id="time" name="time" class="item"></input>
 
-            <Button button_label='Hledat' link='/login'/>
+            <Button label='Hledat' link='/login'/>
 
 
         </form>
