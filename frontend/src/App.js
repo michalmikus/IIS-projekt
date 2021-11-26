@@ -1,14 +1,11 @@
-import Header from './components/Header'
-import Footer from './components/Footer'
-import SearchForm from './components/SearchForm'
+import React from "react";
+import Director from "./components/director";
 
 function App() {
 
   return (
-    <div className="Wrapper">
-      <Header/>
-      <SearchForm/>
-      <Footer/>
+    <div className="App">
+    <Director/>
     </div>
   );
 }

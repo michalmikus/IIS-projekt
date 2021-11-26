@@ -1,15 +1,17 @@
-import bus_img from './bus_picture.png'
-
-const header = () => {
+import bus_img from './bus_picture.png';
+import {Link} from "react-router-dom";
+const Header = () => {
     return (
         <header>
         <img src={bus_img} alt="autobus"></img>
         <div class="header_links">
-          <a id="sign_in_link" href="https://www.w3schools.com/">Přihlásit se</a><br/>
-          <a id="register_link" href="https://www.w3schools.com/">Registrovat se</a>
+          <Link to = "/login" id="sign_in_link"> Přihlásit se</Link>
+          <span>
+          <Link to = "/register">Registrovat se</Link>
+          </span>
         </div>
       </header>
     )
 }
 
-export default header
+export default Header;

@@ -10,10 +10,12 @@ body {
 button {
   background-color: #52CC6F;
   color: black;
+  font-size: 1.2em;
   padding: 0.5em 1em 0.5em 1em;
   border: none;
   width: fit-content;
   margin: auto;
+  margin-top: 0.8em;
   border-radius: 0.3em;
 }
 
@@ -30,7 +32,7 @@ header img {
 
 .header_links{
   text-align: right;
-  padding: ;
+  padding: 1em;
 }
 
 .header_links a {
@@ -38,9 +40,10 @@ header img {
   color: #0A501E;
   font-weight: bold;
   font-size: 0.9rem;
+  display: block;
 }
 
-#sign_in_link{
+#sign_in_link {
   font-size: 1.3rem;
 }
 
@@ -57,18 +60,48 @@ footer img {
 }
 
 #search_form {
-  width: 25%;
+  max-width: 30em;
   margin: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
 }
 
-#search_form label {
-  padding-bottom: 0.2em;
+.item {
+  margin-bottom: 1em;
 }
 
-#search_form select {
-  height: 01.5em;
+.search_form select {
+  height: 2em;
 }
 
+.search_form input {
+  margin: auto;
+  height: 2em;
+  width: 10em;
+  text-align: center;
+}
+
+#login_form {
+  width: 25%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap:1em;
+  margin-top: 5em;
+}
+
+#register_form {
+
+  width: 25%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap:1em;
+}
+
+.btnParent {
+  text-align: center;
+}

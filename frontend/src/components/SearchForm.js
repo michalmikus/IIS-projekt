@@ -1,24 +1,22 @@
 import React from 'react'
+import OptionBox from './OptionBox'
+import Button from './Button'
 
 const SearchForm = () => {
     return (
-            <form id="search_form">
+        <form id="search_form">
 
-                <label for="startStation" >Odkud</label>
-                <select id="startStation" name="startStation" form="startStation" ></select>
+            <OptionBox title='Odkud' element_id = 'startStation' class="item" />
+            <OptionBox title='Kam' element_id = 'endStation' class="item" />
 
-                <label for="endStation" >Kam</label>
-                <select id="endStation" name="endStation" form="endStation"></select>
+            <input type="date" name="date" class="item"/>
 
-                <input type="date" name="date" />
-                <span class="date-button"></span>
+            <input type="time" id="time" name="time" class="item"></input>
 
-                <label for="time"></label>
-                <input type="time" id="time" name="time"></input>
+            <Button button_label='Hledat' link='/login'/>
 
-                <button type="submit" value="Hledat">Hledat</button>
 
-            </form>
+        </form>
     )
 }
 
