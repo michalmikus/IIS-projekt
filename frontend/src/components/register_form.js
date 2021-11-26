@@ -2,8 +2,9 @@ import React from 'react';
 import Button from './Button'
 
 const RegisterForm = () => {
+
     const onClick = () => {
-        console.log("Click")
+        alert("Great Shot!");
     }
 
     return (
@@ -25,7 +26,7 @@ const RegisterForm = () => {
                 
                 <input type = "text" id="user_card_security_code" name="user_card_security_code" placeholder="Bezpečnostní kód karty"></input>
 
-                <Button label='Registrovat se' link='/' onClick='onClick'/>
+                <Button label='Registrovat se' link='/' onClick={onClick}/>
 
             </form>
     )

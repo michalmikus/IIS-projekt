@@ -1,16 +1,16 @@
 import React from "react";
 import Header from './Header';
 import Footer from './Footer';
-import { Button } from "./button";
+import Button from './Button';
 
 const UserProfile = () => {
     return (
-        <div>
+        <>
             <Header/>
-            <Button>Kde se nachází mé spoje</Button>
-            <Button>Nastavení uživatele</Button>
+                <Button label='Kde se nachází mé spoje' link='/login'/>
+                <Button label='Nastavení uživatele' link='/login'/>
             <Footer/>
-        </div>
+        </>
     );
 }
 

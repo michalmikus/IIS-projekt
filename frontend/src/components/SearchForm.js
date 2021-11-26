@@ -15,7 +15,6 @@ const SearchForm = () => {
 
             <Button label='Hledat' link='/login'/>
 
-
         </form>
     )
 }
