@@ -7,8 +7,8 @@ const ReserveConnection = () => {
     return (
         <div>
             <Header/>
-            <Button label='Přihlásit se' link='./user_profile'></Button>
-            <Button label='Registrovat se' link='./register_form'></Button>
+            <Button label='Přihlásit se' link='/login'></Button>
+            <Button label='Registrovat se' link='/register'></Button>
             <Footer/>
         </div>
     );

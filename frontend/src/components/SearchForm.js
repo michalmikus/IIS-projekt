@@ -48,6 +48,7 @@ const JSON_source = [
 const SearchForm = () => {
 
     const [selectedID, setSelects]=useState();
+    const [selectedTime, setTime]=useState();
   
         const requestOptions = {
           method: 'GET',
@@ -74,8 +75,14 @@ const SearchForm = () => {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
           };
+
+          if(selectedTime == undefined) {
+            alert("Nezadal jsi čas braško");
+          }
+
+          else {
   
-          const path = 'https://localhost:7293/api/TimeTables/times/'+selectedID;
+          const path = 'https://localhost:7293/api/TimeTables/times/'+selectedID+'/'+selectedTime;
           
           console.log(path);
 
@@ -90,6 +97,8 @@ const SearchForm = () => {
           .catch(err => {
             console.log("error:", err);
           });  */
+
+        }
     }
 
 
@@ -107,9 +116,7 @@ const SearchForm = () => {
             
             </label>
 
-            <input type="date" name="date" class="item"/>
-
-            <input type="time" id="time" name="time" class="item"></input>
+            <input type="time" id="time" name="time" class="item" value={selectedTime} onChange={e=>setTime(e.target.value)}></input>
 
             <h3 onClick={searchConnections}><Button label='Hledat' link='/connections'/></h3>
 

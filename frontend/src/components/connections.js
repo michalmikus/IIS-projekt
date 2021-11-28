@@ -52,7 +52,6 @@ const ListOfConnections = () => {
       <div id="list_of_connections">
           <Header/>
           <h1>Odjezdy</h1>
-          <OptionBox title='Odkud' element_id = 'startStation' class="item" />
           {JSON_source.map ((connection) => (
               <ConnectionWidget key={connection.id} connectionName={connection.connectionName} connectionId={connection.connectionId} stopName={connection.stopName} timeOfDeparture={connection.timeOfDeparture}/>
           ))}
