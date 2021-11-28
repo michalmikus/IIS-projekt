@@ -49,26 +49,24 @@ const SearchForm = () => {
 
     const [selectedID, setSelects]=useState();
     const [selectedTime, setTime]=useState();
-  
-        const requestOptions = {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' }
+
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
         };
 
-        const path = 'https://localhost:7293/api/home';
-      
-        /*const res = fetch(path, requestOptions)
-  
-        .then(res => {
-          
-          console.log("response: ", res);
+    const path = 'https://localhost:7293/api/home';
 
+    const res = fetch(path, requestOptions)
 
-        })
-        .catch(err => {
-          console.log("error:", err);
-        });  */
-  
+    .then(res => {
+    console.log("response: ", res.body);
+
+    })
+    .catch(err => {
+    console.log("error:", err);
+    });  
 
     const searchConnections = () => {
         const requestOptions = {
@@ -104,6 +102,7 @@ const SearchForm = () => {
 
     
     return (
+        
         <form id="search_form">
 
             <label class="select_box">
