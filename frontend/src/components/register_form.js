@@ -16,8 +16,7 @@ function RegisterForm() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(object)
         };
-        
-
+    
         const res = fetch('https://localhost:7293/api/account/sign-in', requestOptions)
 
         .then(res => {
@@ -63,17 +62,9 @@ function RegisterForm() {
 
                 <input type = "password" id="user_password" name="password" placeholder="Heslo" value={state.password} onChange={ handleChange }></input>
 
-                <input type = "password" id="user_password_confirmation" name="password_confirmation" placeholder="Potvrdit heslo" value={state.password_confirmation} onChange={ handleChange }></input>
-
                 <input type = "number" id="user_phone_number" name="phone_number" placeholder="Telefonní číslo" value={state.phone_number} onChange={ handleChange }></input>
 
-                <input type = "text" id="user_card_number" name="card_number" placeholder="Číslo karty" value={state.card_number} onChange={ handleChange }></input>
-
-                <input type = "text" id="user_card_expiration" name="card_expiration" placeholder="Platnost karty"value={state.card_expiration} onChange={ handleChange }></input>
-                
-                <input type = "text" id="user_card_security_code" name="card_security_code" placeholder="Bezpečnostní kód karty"value={state.card_security_code} onChange={ handleChange }></input>
-
-                <Button label='Registrovat se' link='/' onClick={handleClick}/>
+                <Button label='Registrovat se' link='/login' onClick={handleClick}/>
 
             </form>
     )
