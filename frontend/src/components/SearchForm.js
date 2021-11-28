@@ -25,26 +25,6 @@ const SearchForm = () => {
     useEffect(() => {
         getResult();
     }, []);
-        
-/*
-        .then(res => {
-            console.log("response: ", res.json().then(data =>{
-                JSON_connections = JSON.stringify(data);
-            }));
-            //console.log("response: ", JSON.stringify(res.json()));
-             //   
-            })
-        
-        .catch(err => {
-        console.log("error:", err);
-        });  
-
-        return JSON_connections;
-    }
-
-    console.log("JSON_connections: ", JSON_connections);
-
-    JSON_source = getResult();*/
 
     const searchConnections = () => {
         const requestOptions = {
@@ -59,20 +39,17 @@ const SearchForm = () => {
           else {
   
           const path = 'https://localhost:7293/api/TimeTables/times/'+selectedID+'/'+selectedTime;
-          
-          console.log(path);
 
-          /*const res = fetch(path, requestOptions)
+          const res = fetch(path, requestOptions)
     
           .then(res => {
             
             console.log("response: ", res);
   
-  
           })
           .catch(err => {
             console.log("error:", err);
-          });  */
+          }); 
 
         }
     }
@@ -86,7 +63,7 @@ const SearchForm = () => {
             <h2>{selectedID}</h2>
 
             {connection && (
-                <select class="item" value={selectedID} onChange={e=>setSelects(e.target.value)}>{connection.map((result) => (<option value = {result.id}>{result.name}</option>))}
+                <select class="item" value={selectedID} onChange={e=>setSelects(e.target.value)}>{connection.map((result) => (<option key = {result.id} value = {result.id}>{result.name}</option>))}
                 </select>
             )}
 
