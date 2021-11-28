@@ -33,7 +33,6 @@ const UserProfile = () => {
         return () => clearTimeout(timer);
       }, []);
 
-
     return (
         <div>
             <Header/>
@@ -44,7 +43,7 @@ const UserProfile = () => {
                 <h4> {users.email} </h4>
                 <h4> {users.address.country} </h4>
             </div>
-            <Button link = "/connections" label = "Koupit jízdenku" /> 
+            <Button link = "/ticket_page" label = "Koupit jízdenku" /> 
             <Button link = "/settings" label = "Nastavení" />
             <Footer/>
         </div>

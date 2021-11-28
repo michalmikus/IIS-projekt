@@ -10,6 +10,7 @@ import AdminProfile from "./admin_profile";
 import ListOfConnections from "./connections";
 import ReserveConnection from "./ReserveConnection";
 import UserSettings from "./user_settings";
+import TicketPage from "./ticket_page";
 
 const Director = () => {
 
@@ -25,6 +26,7 @@ const Director = () => {
             <Route exact path="/connections" element={<ListOfConnections/>}/>    
             <Route exact path="/reserve" element={<ReserveConnection/>}/>  
             <Route exact path="/settings" element={<UserSettings/>}/>
+            <Route exact path="/ticket_page" element={<TicketPage/>}/>
         </Routes>
     );
 }
