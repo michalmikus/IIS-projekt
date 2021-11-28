@@ -8,8 +8,9 @@ const UserProfile = () => {
         <div>
             <Header/>
             <div className = "button_profile">
-                <Button label='Kde se nachází mé spoje' link='./user_profile'></Button>
-                <Button label='Nastavení' link='./user_profile'></Button>
+                <Button label='Správa dopravců' link='./user_profile'></Button>
+                <Button label='Správa zastávek' link='./user_profile'></Button>
+                <Button label='Správa personálu' link='./user_profile'></Button>
             </div>
             <Footer/>
         </div>
