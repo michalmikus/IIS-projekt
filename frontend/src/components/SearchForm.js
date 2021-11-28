@@ -5,7 +5,7 @@ import ConnectionInfo from './SelectedConnectionInfo'
 
 const SearchForm = () => {
 
-    const [selectedID, setSelects]=useState();
+    const [selectedID, setSelects]=useState(null);
     const [selectedTime, setTime]=useState();
     const [connection, setConnection]=useState(null);
 
@@ -27,7 +27,7 @@ const SearchForm = () => {
         getResult();
     }, []);
 
-    const searchConnections = () => {
+    const searchConnections = (e) => {
 
         ConnectionInfo.id = selectedID;
         ConnectionInfo.time = selectedTime;
@@ -71,7 +71,7 @@ const SearchForm = () => {
             <h2>{selectedID}</h2>
 
             {connection && (
-                <select class="item" value={selectedID} onChange={e=>setSelects(e.target.value)}>{connection.map((result) => (<option key = {result.id} value = {result.id}>{result.name}</option>))}
+                <select class="item" value={selectedID} default onChange={e=>setSelects(e.target.value)}>{connection.map((result) => (<option key = {result.id} value = {result.id}>{result.name}</option>))}
                 </select>
             )}
 

@@ -3,6 +3,7 @@ import InputBox from "./InputBox";
 import Button from "./Button";
 import { useState } from "react";
 import StatusUser from "./Status";
+import ConnectionInfo from './SelectedConnectionInfo'
 
 function LoginForm() {
 
@@ -26,28 +27,22 @@ function LoginForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(object)
       };
+
+      const path = 'https://localhost:7293/api/account/sign-in';
     
-
-      const res = await fetch('https://localhost:7293/api/account/sign-in', requestOptions)
-
-      .then(res => {
-        if(res)
-        console.log("response: ", res);
-
-        if(res.status === 200) {
-        }
-
-      })
-
-      .catch(err => {
-        console.log("error:", err);
-      });
-
+      try {
+          const res = await fetch(path, requestOptions);
+          const datas = await res.json();
+          ConnectionInfo.url += datas.userId;
+          console.log("loginForm:", ConnectionInfo.url);
+      }
+      catch (error) {
+          console.log("error:", error);
+      }
     }
 
     const handleClick = (e) => {
 
-            e.preventDefault();
             let object = {
 
                 Email: state.email,
@@ -57,9 +52,11 @@ function LoginForm() {
 
            // aby to mělo ten požadovanej format, tak je to nutný dát do toho stringify
           sendJSON(object);
-          setState({email: "", password: ""}); //reset formuláře
 
-        }
+          //reset formuláře
+          setState({email: "", password: ""}); 
+
+    }
 
 
     return (

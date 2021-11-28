@@ -2,33 +2,41 @@ import React from "react";
 import Header from './Header';
 import Footer from './Footer';
 import Button from "./Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import User from "./user";
+import ConnectionInfo from "./SelectedConnectionInfo";
 
 const UserProfile = () => {
 
-    const [users, setUsers] = useState( [
-            {
-                name: "Roman",
-                surname: "Marek",
-                address: "Selská 57",
-                telephone: "720964384",
-                mail: "yo@yo.com",
-                country: "Czech Republic"
-            }
-         ]
-     )
+    const [users, setUsers] = useState(null)
+
+     console.log("path:", ConnectionInfo.url);
+ 
+     const getResult = async () => {
+         try {
+             const res = await fetch(ConnectionInfo.url);
+             const datas = await res.json();
+             console.log("Filtered Connections:", datas);
+             setUsers(datas);
+         }
+         catch (error) {
+            console.log("error:", error);
+         }
+     };
+ 
+     useEffect(() => {
+         getResult();
+     }, []);
+
     return (
         <div>
             <Header/>
             <div className = "user">
-            {users.map((user) => (<User user={user} />
-            ))}
+            {users && (users.map((user) => (<User user={user} />
+            )))}
             </div>
-            <div className  = "usrbtn">
-                <Button link = "/connections" label = "Koupit jízdenku" /> 
-                <Button link = "/settings" label = "Nastavení" />
-            </div>
+            <Button link = "/connections" label = "Koupit jízdenku" /> 
+            <Button link = "/settings" label = "Nastavení" />
             <Footer/>
         </div>
     );
