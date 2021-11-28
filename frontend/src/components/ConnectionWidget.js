@@ -1,12 +1,15 @@
 import React from "react";
 import Button from './Button'
 import { useState } from "react";
+import ConnectionInfo from './SelectedConnectionInfo'
 
 export const ConnectionWidget = ( props ) => {
 
     const [amount, setAmount] = useState(0);
 
     const onClickHandler = () => {
+
+        ConnectionInfo.id = props.connectionId;
   
         const requestOptions = {
           method: 'GET',

@@ -65,7 +65,7 @@ function RegisterForm() {
 
                 <input type = "password" id="user_password_confirmation" name="password_confirmation" placeholder="Potvrdit heslo" value={state.password_confirmation} onChange={ handleChange }></input>
 
-                <input type = "number" id="user_phone_number" name="user_phone_number" placeholder="Telefonní číslo" value={state.phone_number} onChange={ handleChange }></input>
+                <input type = "number" id="user_phone_number" name="phone_number" placeholder="Telefonní číslo" value={state.phone_number} onChange={ handleChange }></input>
 
                 <input type = "text" id="user_card_number" name="card_number" placeholder="Číslo karty" value={state.card_number} onChange={ handleChange }></input>
 

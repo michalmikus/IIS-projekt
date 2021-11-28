@@ -29,6 +29,7 @@ header {
 
 header img {
   width: 23%;
+  float: left;
 }
 
 .header_links{
@@ -122,4 +123,16 @@ footer img {
 
 #widget {
   border: black 0.5px solid;
+}
+
+.usrbtn {
+  width: 25%; 
+  background-color: #52CC6F;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 1em;
+  margin-right: 1em;
+
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from './Button'
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
+import ConnectionInfo from './SelectedConnectionInfo'
 
 const SearchForm = () => {
 
@@ -14,7 +15,7 @@ const SearchForm = () => {
         try {
             const res = await fetch(path);
             const datas = await res.json();
-            console.log("error:", datas);
+            console.log("All connections:", datas);
             setConnection(datas);
         }
         catch (error) {
@@ -27,6 +28,10 @@ const SearchForm = () => {
     }, []);
 
     const searchConnections = () => {
+
+        ConnectionInfo.id = selectedID;
+        ConnectionInfo.time = selectedTime;
+
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
@@ -39,17 +44,20 @@ const SearchForm = () => {
           else {
   
           const path = 'https://localhost:7293/api/TimeTables/times/'+selectedID+'/'+selectedTime;
+          
 
-          const res = fetch(path, requestOptions)
+
+          /*const res = fetch(path, requestOptions)
     
           .then(res => {
             
             console.log("response: ", res);
   
+  
           })
           .catch(err => {
             console.log("error:", err);
-          }); 
+          });  */
 
         }
     }

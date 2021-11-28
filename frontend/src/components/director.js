@@ -9,6 +9,7 @@ import EmployeeProfile from "./employee_profile";
 import AdminProfile from "./admin_profile";
 import ListOfConnections from "./connections";
 import ReserveConnection from "./ReserveConnection";
+import UserSettings from "./user_settings";
 
 const Director = () => {
 
@@ -23,6 +24,7 @@ const Director = () => {
             <Route exact path="/admin_profile" element={<AdminProfile/>}/>     
             <Route exact path="/connections" element={<ListOfConnections/>}/>    
             <Route exact path="/reserve" element={<ReserveConnection/>}/>  
+            <Route exact path="/settings" element={<UserSettings/>}/>
         </Routes>
     );
 }
