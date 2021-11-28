@@ -9,7 +9,7 @@ const ListOfConnections = () => {
 
     const [connection, setConnection]=useState(null);
 
-    const path = 'https://localhost:7293/api/TimeTables/times/df7e3d01-aab0-4119-da11-08d9b2900074/09:00';
+    const path = 'https://localhost:7293/api/TimeTables/times/'+ConnectionInfo.id+'/'+ConnectionInfo.time;
     console.log("path:", path);
 
     const getResult = async () => {
