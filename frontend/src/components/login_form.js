@@ -52,6 +52,9 @@ function LoginForm() {
 
           console.log('header', document.cookie);
           console.log("loginForm:", ConnectionInfo.url)
+<<<<<<< HEAD
+>>>>>>> a01b999318e7d28aa1521a7c356f03f1141dc131
+=======
 >>>>>>> a01b999318e7d28aa1521a7c356f03f1141dc131
       }
       catch (error) {
