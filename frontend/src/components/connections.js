@@ -13,6 +13,7 @@ const ListOfConnections = () => {
     console.log("path:", path);
 
     const getResult = async () => {
+
         try {
             const res = await fetch(path);
             const datas = await res.json();

@@ -5,6 +5,7 @@ import Button from "./Button";
 import { useState, useEffect } from "react";
 import User from "./user";
 import ConnectionInfo from "./SelectedConnectionInfo";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
 
@@ -15,7 +16,8 @@ const UserProfile = () => {
         console.log("path:", ConnectionInfo.url);
 
          try {
-             const res = await fetch(ConnectionInfo.url);
+             const path = ConnectionInfo.url+'/passengers/'+ConnectionInfo.userId;
+             const res = await fetch(path);
              const datas = await res.json();
              console.log("Filtered Connections:", datas);
              console.log("email:", datas.address.name);
@@ -43,8 +45,12 @@ const UserProfile = () => {
                 <h4> {users.email} </h4>
                 <h4> {users.address.country} </h4>
             </div>
-            <Button link = "/ticket_page" label = "Koupit jízdenku" /> 
-            <Button link = "/settings" label = "Nastavení" />
+            <Link to="/ticket_page">
+            <Button label = "Koupit jízdenku" /> 
+            </Link>
+            <Link to ="/settings">
+            <Button label = "Nastavení" />
+            </Link>
             <Footer/>
         </div>
     );

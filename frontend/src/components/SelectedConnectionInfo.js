@@ -2,6 +2,7 @@ const ConnectionInfo = {
     id: "", 
     time: "", 
     amout: "", 
-    url:""
+    url:"", 
+    userId:""
 }
 export default ConnectionInfo

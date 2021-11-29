@@ -2,8 +2,11 @@ import React from "react";
 import Button from './Button'
 import { useState, useEffect } from "react";
 import ConnectionInfo from './SelectedConnectionInfo'
+import { useNavigate } from "react-router-dom"
 
 export const ConnectionWidget = ( props ) => {
+
+    const navigate = useNavigate();
 
     const [amount, setAmount] = useState(0);
 
@@ -17,14 +20,18 @@ export const ConnectionWidget = ( props ) => {
       try {
           const res = await fetch(path);
           const datas = await res.json();
-          ConnectionInfo.url = 'https://localhost:7293/'+datas.url;
+          const editedUrl = datas.url.slice(0, -12) // trim /passengers
+          ConnectionInfo.url = 'https://localhost:7293/'+editedUrl;
           console.log("ConnectionWidget", ConnectionInfo.url);
       }
       catch (error) {
           console.log("error:", error);
       }
-    };
 
+      navigate('/reserve');
+
+
+    };
 
     return (
         <div id="widget">
@@ -34,7 +41,7 @@ export const ConnectionWidget = ( props ) => {
                 <button onClick={() => setAmount(amount + 1)}>+</button>
             </div>
             <h2>{amount}</h2>
-            <h3 key={props.id} onClick={getResult}><Button label='Zarezervovat' link='/reserve'/></h3>
+            <h3 key={props.id} onClick={getResult}><Button label='Zarezervovat'/></h3>
         </div>
     );
 }
