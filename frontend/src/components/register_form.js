@@ -3,9 +3,12 @@ import Button from './Button'
 
 
 import { useState } from "react";
+import ConnectionInfo from './SelectedConnectionInfo';
 
 function RegisterForm() {
-    const [state, setState] = useState({name: "", surname: "", email: "", password: "", password_confirmation: "", phone_number: "", card_number: "", card_expiration: "", card_security_code: ""});
+    const [state, setState] = useState({name: "", surname: "",login: "", email: "", password: "", address_field: "", phone_number: ""});
+
+    const path = ConnectionInfo.url + 'register-passenger';
 
     const sendJSON = async (object) => {
 
@@ -16,8 +19,8 @@ function RegisterForm() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(object)
         };
-    
-        const res = fetch('https://localhost:7293/api/account/sign-in', requestOptions)
+        
+        const res = fetch(path, requestOptions)
 
         .then(res => {
             console.log("response: ", res);
@@ -40,15 +43,32 @@ function RegisterForm() {
     const handleClick = (e) => {
 
             e.preventDefault();
-            let object = {
-                Name: state.name+state.surname,
-                Email: state.email,
-                Password: state.password,
-                PhoneNumber: state.phone_number
+            let address = {
+                Name: state.name,
+                Surname: state.surname,
+                Address: state.address,
+                Country: state.country
             }
 
-          console.log(JSON.stringify(object));
-          setState({name: "", surname: "", email: "", password: "", password_confirmation: "", phone_number: "", card_number: "", card_expiration: "", card_security_code: ""});
+            let PassengerModel = {
+                address,
+                PhoneNumber: state.phone_number,
+            }
+
+            let UserDetail = {
+                Name: state.login,
+                Email: state.email,
+                Password: state.password,
+            }
+
+            let registrationModel = {
+                PassengerModel,               
+                UserDetail
+            }
+
+          console.log(JSON.stringify(registrationModel));
+          sendJSON(registrationModel);
+          setState({name: "", surname: "",login: "", email: "", password: "", address_field: "", phone_number: ""});
         }
 
     return (
@@ -58,13 +78,19 @@ function RegisterForm() {
 
                 <input type = "text" id="user_surname" name="surname" placeholder="Přijmení" value={state.surname} onChange={ handleChange }></input>
 
+                <input type = "text" id="login" name="login" placeholder="Užívaťeľské meno" value={state.login} onChange={ handleChange }></input>
+
                 <input type = "email" id="user_email" name="email" placeholder="E-mail" value={state.email} onChange={ handleChange }></input>
 
                 <input type = "password" id="user_password" name="password" placeholder="Heslo" value={state.password} onChange={ handleChange }></input>
 
                 <input type = "number" id="user_phone_number" name="phone_number" placeholder="Telefonní číslo" value={state.phone_number} onChange={ handleChange }></input>
 
-                <Button label='Registrovat se' link='/login' onClick={handleClick}/>
+                <input type = "address" id="address_field" name="address" placeholder="Adresa" value={state.address} onChange={ handleChange }></input>
+                
+                <input type = "country" id="country_field" name="country" placeholder="Krajina" value={state.country} onChange={ handleChange }></input>
+
+                <Button label='Registrovat' link='/login' onClick={handleClick}/>
 
             </form>
     )
