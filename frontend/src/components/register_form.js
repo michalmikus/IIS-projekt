@@ -1,11 +1,13 @@
 import React from 'react';
 import Button from './Button'
-
-
 import { useState } from "react";
 import ConnectionInfo from './SelectedConnectionInfo';
+import { useNavigate } from "react-router-dom"
 
 function RegisterForm() {
+
+    const navigate = useNavigate();
+    
     const [state, setState] = useState({name: "", surname: "",login: "", email: "", password: "", address_field: "", phone_number: ""});
 
     const path = ConnectionInfo.url + 'register-passenger';
@@ -19,15 +21,16 @@ function RegisterForm() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(object)
         };
-        
-        const res = fetch(path, requestOptions)
 
-        .then(res => {
-            console.log("response: ", res);
-        })
-        .catch(err => {
-            console.log("error:", err);
-        });
+        try {
+            const res = await fetch(path, requestOptions);
+            const datas = await res.json();
+            ConnectionInfo.url += datas.userId;
+            console.log("loginForm:", ConnectionInfo.url);
+        }
+        catch (error) {
+            console.log("error:", error);
+        }
 
     }
 
@@ -42,34 +45,37 @@ function RegisterForm() {
 
     const handleClick = (e) => {
 
-            e.preventDefault();
-            let address = {
-                Name: state.name,
-                Surname: state.surname,
-                Address: state.address,
-                Country: state.country
-            }
-
-            let PassengerModel = {
-                address,
-                PhoneNumber: state.phone_number,
-            }
-
-            let UserDetail = {
-                Name: state.login,
-                Email: state.email,
-                Password: state.password,
-            }
-
-            let registrationModel = {
-                PassengerModel,               
-                UserDetail
-            }
-
-          console.log(JSON.stringify(registrationModel));
-          sendJSON(registrationModel);
-          setState({name: "", surname: "",login: "", email: "", password: "", address_field: "", phone_number: ""});
+        e.preventDefault();
+        let address = {
+            Name: state.name,
+            Surname: state.surname,
+            Address: state.address,
+            Country: state.country
         }
+
+        let PassengerModel = {
+            address,
+            PhoneNumber: state.phone_number,
+        }
+
+        let UserDetail = {
+            Name: state.login,
+            Email: state.email,
+            Password: state.password,
+        }
+
+        let registrationModel = {
+            PassengerModel,               
+            UserDetail
+        }
+
+        console.log(JSON.stringify(registrationModel));
+        sendJSON(registrationModel);
+        setState({name: "", surname: "",login: "", email: "", password: "", address_field: "", phone_number: ""});
+
+        navigate('/login');
+
+    }
 
     return (
             <form id="register_form">
@@ -90,7 +96,7 @@ function RegisterForm() {
                 
                 <input type = "country" id="country_field" name="country" placeholder="Krajina" value={state.country} onChange={ handleChange }></input>
 
-                <Button label='Registrovat' link='/login' onClick={handleClick}/>
+                <Button label='Registrovat' onClick={handleClick}/>
 
             </form>
     )
