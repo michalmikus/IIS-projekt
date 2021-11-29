@@ -40,7 +40,17 @@ function LoginForm() {
             localStorage.UserType = datas.userType;
             localStorage.SignedIn = true;
 
-            navigate(localStorage.LastUrl);
+            if(localStorage.UserType === "admin") {
+
+            }
+
+            else if (localStorage.UserType === "carrier") {
+              
+            }
+
+            else {
+              navigate(localStorage.LastUrl);              
+            }
 
           }
 

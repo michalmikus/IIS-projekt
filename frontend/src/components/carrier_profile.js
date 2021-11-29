@@ -2,16 +2,26 @@ import React from "react";
 import Header from './Header';
 import Footer from './Footer';
 import LinkButton from "./LinkButton";
+import { useNavigate } from "react-router-dom"
 
 const CarrierProfile = () => {
-    return (
-        <div>
-            <Header/>
-                <LinkButton label='Správa personálu' link='./list_empoyees'/>
-                <LinkButton label='Správa zastávek' link='./list_stops'/>
-            <Footer/>
-        </div>
-    );
+
+    const navigate = useNavigate();
+
+    if(localStorage.UserType !== "admin") {
+        navigate('/');
+    }
+
+    else{
+        return (
+            <div>
+                <Header/>
+                    <LinkButton label='Správa personálu' link='./list_empoyees'/>
+                    <LinkButton label='Správa zastávek' link='./list_stops'/>
+                <Footer/>
+            </div>
+        );
+    }
 }
 
 export default CarrierProfile;

@@ -62,8 +62,8 @@ const Header = () => {
            </a>
            <div class="header_links">
            <Button label='Přihlásit se' onClick={sign_in}/>
-           <Link to = '/login_carrier' id="user_profile">Dopravce</Link>
-           <Link to = '/login_admin' id="user_profile">Admin</Link>
+           <Link to = '/login' id="user_profile">Dopravce</Link>
+           <Link to = '/login' id="user_profile">Admin</Link>
           </div>
        </header>
       )

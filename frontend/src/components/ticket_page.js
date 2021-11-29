@@ -48,7 +48,7 @@ const TicketPage = () => {
         };
 
         try {
-            const path = ConnectionInfo.url+'/passenger/'+ConnectionInfo.userId+'/ticket';
+            const path = ConnectionInfo.url+'/passenger'+ConnectionInfo.userId+'/ticket';
             console.log("TicketPath:", path);
             const res = await fetch(path, requestOptions);
             const datas = await res.json();
@@ -76,7 +76,7 @@ const TicketPage = () => {
 
         sendTicket(object);
 
-        navigate('/home');
+        navigate('/');
     }
 
     return (
