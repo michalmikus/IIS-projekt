@@ -19,15 +19,16 @@ function RegisterForm() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(object)
         };
-        
-        const res = fetch(path, requestOptions)
 
-        .then(res => {
-            console.log("response: ", res);
-        })
-        .catch(err => {
-            console.log("error:", err);
-        });
+        try {
+            const res = await fetch(path, requestOptions);
+            const datas = await res.json();
+            ConnectionInfo.url += datas.userId;
+            console.log("loginForm:", ConnectionInfo.url);
+        }
+        catch (error) {
+            console.log("error:", error);
+        }
 
     }
 
