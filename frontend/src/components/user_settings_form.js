@@ -21,14 +21,23 @@ function SettingsForm() {
         };
         console.log("path=",ConnectionInfo.url)
         const path = ConnectionInfo.url
-        fetch(path,requestOptions)
-        .then(response => 
-            {
-                if (response.state == 200)
-                    alert("Úspešne uložené") 
-                else
-                    alert("Chyba pri uložení")
-            })
+        try {
+            const res = await fetch(path, requestOptions);
+            const datas = await res.json();
+
+            if (res.ok)
+                redirectToProfile();
+            else
+                alert("Nastala chyba skúste znovu.");
+        }
+        catch (error) {
+            console.log("error:", error);
+        }
+      }
+    
+    function redirectToProfile(){
+        alert("Úspešné uloženie.");
+        // redirect to user profile 
     }
 
     const handleChange =evt => {

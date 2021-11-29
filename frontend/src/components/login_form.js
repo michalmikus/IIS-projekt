@@ -34,7 +34,9 @@ function LoginForm() {
           const res = await fetch(path, requestOptions);
           const datas = await res.json();
           ConnectionInfo.url += datas.userId;
-          console.log("loginForm:", ConnectionInfo.url);
+
+          console.log('header', document.cookie);
+          console.log("loginForm:", ConnectionInfo.url)
       }
       catch (error) {
           console.log("error:", error);
@@ -55,6 +57,7 @@ function LoginForm() {
 
           //reset formuláře
           setState({email: "", password: ""}); 
+    
 
     }
 
