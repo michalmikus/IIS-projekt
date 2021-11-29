@@ -37,18 +37,18 @@ function LoginForm() {
           const res = await fetch(path, requestOptions);
           const datas = await res.json();
           console.log(datas);
+
           if(res.ok) {
             localStorage.UserId = datas.userId;
             localStorage.UserType = datas.userType;
             localStorage.SignedIn = true;
             navigate('/user_profile');
           }
+
           else{
             alert("Špatné přihlašovací údaje.");
           }
-=======
->>>>>>> 528dcb42ca74f1129d14f89f25c40305649f8e51
->>>>>>> a01b999318e7d28aa1521a7c356f03f1141dc131
+
       }
       catch (error) {
           console.log("error:", error);
