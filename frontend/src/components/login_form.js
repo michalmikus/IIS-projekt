@@ -30,25 +30,25 @@ function LoginForm() {
       };
 
       const path = 'https://localhost:7293/api/account/sign-in';
-    
+
       try {
           const res = await fetch(path, requestOptions);
-          if(res.status === 200) {  
-            const datas = await res.json();      
+          if(res.status === 200) {
+            const datas = await res.json();
             ConnectionInfo.userId = datas.userId;
             localStorage.UserId = datas.userId;
             localStorage.UserType = datas.userType;
-            localStorage.SignedIn = true; 
-            
+            localStorage.SignedIn = true;
+
             navigate(localStorage.LastUrl);
 
           }
 
           else{
             navigate('/login');
-            await alert("Špatné přihlašovací údaje."); 
+            await alert("Špatné přihlašovací údaje.");
           }
-  
+
       }
       catch (error) {
           console.log("error:", error);
@@ -58,17 +58,16 @@ function LoginForm() {
     const handleClick = (e) => {
 
             let object = {
-
                 Email: state.email,
                 Password: state.password
-
             }
 
-           // aby to mělo ten požadovanej format, tak je to nutný dát do toho stringify
+          // aby to mělo ten požadovanej format, tak je to nutný dát do toho stringify
           sendJSON(object);
 
           //reset formuláře
-          setState({email: "", password: ""}); 
+          setState({email: "", password: ""});
+
 
     }
 
@@ -78,7 +77,7 @@ function LoginForm() {
         <input type = "email" id='user_email' name='email' placeholder='E-mail' value={state.email} onChange={ handleChange }></input>
         <input type = "password" id='user_password' name='password' placeholder='Heslo' value={state.password} onChange={ handleChange }></input>
         <LinkButton label='Odeslat' link='/ticket_page' onClick={handleClick}/>
-  
+
       </form>
     )
 

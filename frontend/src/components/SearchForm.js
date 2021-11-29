@@ -42,14 +42,14 @@ const SearchForm = () => {
           }
 
           else {
-             
+
           navigate('/connections');
 
         }
     }
-    
+
     return (
-        
+
         <form id="search_form">
 
             <label class="select_box">

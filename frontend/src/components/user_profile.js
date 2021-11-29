@@ -10,8 +10,8 @@ const UserProfile = () => {
 
     const navigate = useNavigate();
 
-    const [users, setUsers] = useState({name: "", surname: "", email: "", phoneNumber: "", country: "", address:""}) 
- 
+    const [users, setUsers] = useState({name: "", surname: "", email: "", phoneNumber: "", country: "", address:""})
+
      const getResult = async () => {
 
          try {

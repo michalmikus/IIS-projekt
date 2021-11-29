@@ -7,34 +7,34 @@ import Button from './Button'
 const Header = () => {
 
     const navigate = useNavigate();
-  
+
     const sign_out = async () => {
 
         const requestOptions = {
           method: 'POST'
         };
-      
+
         try {
             const res = await fetch('https://localhost:7293/api/account/sign-out', requestOptions);
             console.log(res);
             if(res.status === 200) {
               delete localStorage.UserId;
               delete localStorage.UserType;
-              localStorage.SignedIn = false; 
+              localStorage.SignedIn = false;
               navigate('/');
             }
             else{
-              alert("Odhlášení bylo neúspěšné. Zkuste to prosím znovu."); 
+              alert("Odhlášení bylo neúspěšné. Zkuste to prosím znovu.");
             }
         }
         catch (error) {
             console.log("error:", error);
         }
-  
+
       }
 
     const sign_in = () => {
-      localStorage.LastUrl = window.location.pathname; 
+      localStorage.LastUrl = window.location.pathname;
       navigate('/login');
     }
 
@@ -67,7 +67,7 @@ const Header = () => {
           </div>
        </header>
       )
-    }  
+    }
 }
 
 export default Header;

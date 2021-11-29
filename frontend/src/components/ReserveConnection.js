@@ -9,12 +9,12 @@ const ReserveConnection = () => {
 
     const navigate = useNavigate();
 
-    const LogIn = () => {               
+    const LogIn = () => {
           navigate('/login');
         }
 
 
-    const SignIn = () => {               
+    const SignIn = () => {
         navigate('/register');
       }
 

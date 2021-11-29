@@ -67,7 +67,7 @@ const TicketPage = () => {
 
         let object = {
             Type: PassengerType,
-            Price: '10', 
+            Price: '10',
             BoardingStopId: BoardingStop,
             DestinationStopId: DestinationStop
         }
@@ -91,7 +91,7 @@ const TicketPage = () => {
                 <div className="col col-4">Kam</div>
                 </li>
                 <li className="table-row">
-    
+
                 <select className="col col-2" value={PassengerType} onChange={e=>setPassengerType(e.target.value)}>
                     <option disabled selected value>Vyberte</option>
                     <option value="adult">Dospělý</option>
@@ -99,13 +99,13 @@ const TicketPage = () => {
                     <option value="senior">Senior</option>
                     <option value="child">Dítě do 6 let</option>
                 </select>
-    
+
                 {BoardingStops && (
                     <select className="col col-3" value={BoardingStop} onChange={e=>setBoardingStop(e.target.value)}><option disabled selected value>Vyberte</option>
                     {BoardingStops.map((result) => (<option key = {result.id} value = {result.id}>{result.name}</option>))}
                     </select>
                 )}
-    
+
                 {DestinationStops && (
                     <select className="col col-4" value={DestinationStop} onChange={e=>setDestinationStop(e.target.value)}><option disabled selected value>Vyberte</option>
                     {DestinationStops.map((result) => (<option key = {result.id} value = {result.id}>{result.name}</option>))}

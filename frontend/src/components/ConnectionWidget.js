@@ -39,6 +39,10 @@ export const ConnectionWidget = ( props ) => {
 
     };
 
+      navigate('/reserve');
+
+
+    };
 
     return (
         <div id="widget">
