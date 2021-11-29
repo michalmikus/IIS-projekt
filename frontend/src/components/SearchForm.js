@@ -2,6 +2,7 @@ import React from 'react'
 import Button from './Button'
 import { useState, useEffect } from "react"
 import ConnectionInfo from './SelectedConnectionInfo'
+import { Navigate } from 'react-router-dom'
 
 const SearchForm = () => {
 
@@ -39,12 +40,12 @@ const SearchForm = () => {
 
           if(selectedTime == undefined) {
             alert("Nezadal jsi čas braško");
+            <Navigate to="/"/>
           }
 
           else {
   
-          const path = 'https://localhost:7293/api/TimeTables/times/'+selectedID+'/'+selectedTime;
-          
+          const path = 'https://localhost:7293/api/TimeTables/times/'+selectedID+'/'+selectedTime;         
 
 
           /*const res = fetch(path, requestOptions)

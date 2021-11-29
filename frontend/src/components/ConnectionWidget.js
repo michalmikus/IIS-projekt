@@ -7,7 +7,6 @@ export const ConnectionWidget = ( props ) => {
 
     const [amount, setAmount] = useState(0);
 
-
     const getResult = async () => {
     ConnectionInfo.id = props.connectionId;
     ConnectionInfo.amout = amount;
