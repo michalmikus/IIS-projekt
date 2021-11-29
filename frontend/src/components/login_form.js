@@ -47,6 +47,7 @@ function LoginForm() {
             alert("Špatné přihlašovací údaje.");
           }
 =======
+>>>>>>> 528dcb42ca74f1129d14f89f25c40305649f8e51
 >>>>>>> a01b999318e7d28aa1521a7c356f03f1141dc131
       }
       catch (error) {
