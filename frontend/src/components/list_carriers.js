@@ -9,7 +9,7 @@ const ListCarriers = () => {
 
     const [carriers, setCarriers] = useState()
 
-    const path = 'https://localhost:7293/api/carriers/all';
+    const path = 'http://transport-is.azurewebsites.net/api/carriers/all';
     console.log("path:", path);
 
 const getResult = async () => {

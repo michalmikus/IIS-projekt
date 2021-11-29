@@ -11,7 +11,7 @@ const ListOfConnections = () => {
     const getResult = async () => {
 
         try {
-            const res = await fetch('https://localhost:7293/api/TimeTables/times/'+localStorage.ConnectionId+'/'+localStorage.Time);
+            const res = await fetch('http://transport-is.azurewebsites.net/api/TimeTables/times/'+localStorage.ConnectionId+'/'+localStorage.Time);
             const datas = await res.json();
             console.log("Filtered Connections:", datas);
             setConnection(datas);

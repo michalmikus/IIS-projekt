@@ -13,13 +13,13 @@ export const ListWidget = ( props ) => {
             headers: { 'Content-Type': 'application/json' },
           };
     
-          const path = 'https://localhost:7293/api/carriers/'+props.id;
+          const path = 'http://transport-is.azurewebsites.net/api/carriers/'+props.id;
           console.log(path)
 
           fetch(path,requestOptions).then(res => {
               if (res.ok)
               {
-                    console.log('https://localhost:7293/api/carriers/'+props.id)
+                    console.log('http://transport-is.azurewebsites.net/api/carriers/'+props.id)
                     window.location.reload()
               }
           },
@@ -31,7 +31,7 @@ export const ListWidget = ( props ) => {
     const [carrier, setCarrier] = useState();
 
     const getInfo = async () => {
-        const path = 'https://localhost:7293/api/carriers/'+props.id;
+        const path = 'http://transport-is.azurewebsites.net/api/carriers/'+props.id;
         CarrierDetail.path = path;
 
         try {

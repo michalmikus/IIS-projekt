@@ -15,7 +15,7 @@ const Header = () => {
         };
 
         try {
-            const res = await fetch('https://localhost:7293/api/account/sign-out', requestOptions);
+            const res = await fetch('http://transport-is.azurewebsites.net/api/account/sign-out', requestOptions);
             console.log(res);
             if(res.status === 200) {
               delete localStorage.UserId;
@@ -41,7 +41,7 @@ const Header = () => {
     if(localStorage.SignedIn === "true") {
       return (
         <header>
-          <a href="http://localhost:3000/">
+          <a href="http://transport-is.azurewebsites.net/">
           <img src={bus_img} alt="autobus"></img>
            </a>
            <div class="header_links">
@@ -57,7 +57,7 @@ const Header = () => {
     else {
       return (
         <header>
-          <a href="http://localhost:3000/">
+          <a href="http://transport-is.azurewebsites.net/">
           <img src={bus_img} alt="autobus"></img>
            </a>
            <div class="header_links">

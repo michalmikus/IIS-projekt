@@ -22,12 +22,12 @@ export const ConnectionWidget = ( props ) => {
             localStorage.Amout = amount;
 
             try {
-                const res = await fetch('https://localhost:7293/api/TimeTables/info/'+ localStorage.ConnectionId);
+                const res = await fetch('http://transport-is.azurewebsites.net/api/TimeTables/info/'+ localStorage.ConnectionId);
                 const datas = await res.json();
 
                 //localStorage.Url = api/carrier/carrierID/connection/connectionID
                 const editedUrl = datas.url.slice(0, -12) // trim /passengers
-                localStorage.Url = 'https://localhost:7293/'+editedUrl;
+                localStorage.Url = 'http://transport-is.azurewebsites.net/'+editedUrl;
 
             }
             catch (error) {
