@@ -3,18 +3,15 @@ import Header from './Header'
 import Footer from './Footer'
 import ConnectionWidget from './ConnectionWidget'
 import { useState, useEffect } from "react"
-import ConnectionInfo from './SelectedConnectionInfo'
 
 const ListOfConnections = () => {
 
     const [connection, setConnection]=useState(null);
 
-    const path = 'https://localhost:7293/api/TimeTables/times/'+ConnectionInfo.id+'/'+ConnectionInfo.time;
-    console.log("path:", path);
-
     const getResult = async () => {
+
         try {
-            const res = await fetch(path);
+            const res = await fetch('https://localhost:7293/api/TimeTables/times/'+localStorage.ConnectionId+'/'+localStorage.Time);
             const datas = await res.json();
             console.log("Filtered Connections:", datas);
             setConnection(datas);
@@ -33,8 +30,6 @@ const ListOfConnections = () => {
       <div id="list_of_connections">
           <Header/>
           <h1>Odjezdy</h1>
-          <h2>{ConnectionInfo.id}</h2>
-          
           {connection && ( connection.map ((widget) => (
               <ConnectionWidget key={widget.id} connectionName={widget.connectionName} connectionId={widget.connectionId} stopName={widget.stopName} timeOfDeparture={widget.timeOfDeparture}/>
           )))}

@@ -4,7 +4,7 @@ import { useState } from "react";
 import ConnectionInfo from './SelectedConnectionInfo'
 import { useNavigate } from "react-router-dom"
 
-function LoginForm() {
+function LoginFormCarrier() {
 
   const navigate = useNavigate();
 
@@ -84,4 +84,4 @@ function LoginForm() {
 
 }
 
-export default LoginForm;
+export default LoginFormCarrier;

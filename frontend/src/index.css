@@ -49,8 +49,9 @@ header img {
   transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
-#sign_in_link {
-  font-size: 1.3rem;
+#user_profile {
+  font-size: 1rem;
+  padding-right: 1.5em;
 }
 
 footer {

@@ -1,24 +1,22 @@
 import React from "react";
 import Header from './Header';
 import Footer from './Footer';
-import Button from "./Button";
+import LinkButton from "./LinkButton";
 import { useState, useEffect } from "react";
-import User from "./user";
 import ConnectionInfo from "./SelectedConnectionInfo";
+import { useNavigate } from "react-router-dom"
 
 const UserProfile = () => {
+
+    const navigate = useNavigate();
 
     const [users, setUsers] = useState({name: "", surname: "", email: "", phoneNumber: "", country: "", address:""}) 
  
      const getResult = async () => {
 
-        console.log("path:", ConnectionInfo.url);
-
          try {
-             const res = await fetch(ConnectionInfo.url);
+             const res = await fetch(localStorage.Url+'/passengers/'+localStorage.UserId);
              const datas = await res.json();
-             console.log("Filtered Connections:", datas);
-             console.log("email:", datas.address.name);
              setUsers(datas);
          }
          catch (error) {
@@ -33,9 +31,14 @@ const UserProfile = () => {
         return () => clearTimeout(timer);
       }, []);
 
+    const doNothing = () => {
+
+    }
+
     return (
         <div>
             <Header/>
+
             <div className = "user">
                 <h3>{users.address.name} {users.address.surname}</h3>
                 <h4> {users.address.address} </h4>
@@ -43,8 +46,10 @@ const UserProfile = () => {
                 <h4> {users.email} </h4>
                 <h4> {users.address.country} </h4>
             </div>
-            <Button link = "/ticket_page" label = "Koupit jízdenku" /> 
-            <Button link = "/settings" label = "Nastavení" />
+
+            <LinkButton label = "Koupit jízdenku" link="/ticket_page" onClick={doNothing}/>
+            <LinkButton label = "Nastavení" link="/settings" onClick={doNothing}/>
+
             <Footer/>
         </div>
     );

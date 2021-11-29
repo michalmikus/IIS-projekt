@@ -4,6 +4,7 @@ import Footer from './Footer';
 import SearchForm from "./SearchForm";
 
 const Home = () => {
+
     return (
       <div>
         <Header/>

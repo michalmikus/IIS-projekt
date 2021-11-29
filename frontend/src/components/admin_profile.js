@@ -1,16 +1,15 @@
 import React from "react";
 import Header from './Header';
 import Footer from './Footer';
-import Button from "./Button";
+import LinkButton from "./LinkButton";
 
 const UserProfile = () => {
     return (
         <div>
             <Header/>
             <div className = "button_profile">
-                <Button label='Správa dopravců' link='./user_profile'></Button>
-                <Button label='Správa zastávek' link='./user_profile'></Button>
-                <Button label='Správa personálu' link='./user_profile'></Button>
+                <LinkButton label='Správa dopravců' link='./list_carriers'/>
+                <LinkButton label='Správa zastávek' link='./user_profile'/>
             </div>
             <Footer/>
         </div>

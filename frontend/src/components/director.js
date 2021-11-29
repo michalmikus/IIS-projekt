@@ -11,6 +11,11 @@ import ListOfConnections from "./connections";
 import ReserveConnection from "./ReserveConnection";
 import UserSettings from "./user_settings";
 import TicketPage from "./ticket_page";
+import ListCarriers from "./list_carriers"
+import ListEmployees from "./list_employees"
+import ListStop from "./list_stops";
+import ChangeCarrier from "./change_carrier";
+import CarrierProfileDetails from "./carrier_profile_details";
 
 const Director = () => {
 
@@ -27,6 +32,11 @@ const Director = () => {
             <Route exact path="/reserve" element={<ReserveConnection/>}/>  
             <Route exact path="/settings" element={<UserSettings/>}/>
             <Route exact path="/ticket_page" element={<TicketPage/>}/>
+                        <Route exact path="/list_carriers" element={<ListCarriers/>}/>
+            <Route exact path="/list_employees" element={<ListEmployees/>}/>
+            <Route exact path="/list_stops" element={<ListStop/>}/>
+            <Route exact path="/change_carrier" element={<ChangeCarrier/>}/>
+            <Route exact path="/carrier_details" element={<CarrierProfileDetails/>}/>
         </Routes>
     );
 }

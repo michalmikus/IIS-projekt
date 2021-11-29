@@ -2,6 +2,8 @@ const ConnectionInfo = {
     id: "", 
     time: "", 
     amout: "", 
-    url:""
+    url:"", 
+    userId:"", 
+    FullActualUrl: ""
 }
 export default ConnectionInfo
