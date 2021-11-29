@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: whitesmoke;
+  padding: 1em;
+  text-align: center;
+}
+
+button {
+  background-color: #52CC6F;
+  color: black;
+  font-size: 1.2em;
+  padding: 0.5em 1em 0.5em 1em;
+  border: none;
+  width: fit-content;
+  margin: auto;
+  margin-top: 0.8em;
+  border-radius: 0.3em;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+header img {
+  width: 23%;
+  float: left;
+}
+
+.header_links{
+  text-align: right;
+  padding: 1em;
+}
+
+.header_links a {
+  text-decoration: none;
+  color: #0A501E;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.header_links a:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+#sign_in_link {
+  font-size: 1.3rem;
+}
+
+footer {
+  padding: 1.5em;
+  position: absolute;
+  bottom: 0;
+}
+
+footer img {
+  display: block;
+  margin-left: auto;
+  width: 28%;
+}
+
+#search_form {
+  max-width: 30em;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.item {
+  margin-bottom: 1em;
+}
+
+.search_form select {
+  height: 2em;
+}
+
+.search_form input {
+  margin: auto;
+  height: 2em;
+  width: 10em;
+  text-align: center;
+}
+
+#login_form {
+  width: 25%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap:1em;
+  margin-top: 5em;
+}
+
+#register_form {
+
+  width: 25%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap:1em;
+}
+
+.btnParent {
+  text-align: center;
+}
+
+#reserveWidget {
+  width: 50em;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap:1em;
+}
+
+#widget {
+  border: black 0.5px solid;
+}
+
+.usrbtn {
+  width: 25%; 
+  background-color: #52CC6F;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 1em;
+  margin-right: 1em;
+}
+
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.responsive-table li {
+  border-radius: 3px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.table-header {
+  background-color: #95A5A6;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.table-row {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+}
+.col-1 {
+  flex-basis: 10%;
+}
+.col-2 {
+  flex-basis: 40%;
+}
+.col-3 {
+  flex-basis: 25%;
+}
+.col-4 {
+  flex-basis: 25%;
+}
