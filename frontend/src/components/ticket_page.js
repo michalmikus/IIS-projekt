@@ -48,10 +48,11 @@ const TicketPage = () => {
         };
 
         try {
-            const path = ConnectionInfo.url+'/passenger'+ConnectionInfo.userId+'/ticket';
+            const path = localStorage.Url+'/connection/'+localStorage.ConnectionId+'/passenger/'+localStorage.UserId+'/ticket';
             console.log("TicketPath:", path);
             const res = await fetch(path, requestOptions);
             const datas = await res.json();
+            alert("Vaše rezervace byla odeslána.");
         }
         catch (error) {
             console.log("error:", error);
