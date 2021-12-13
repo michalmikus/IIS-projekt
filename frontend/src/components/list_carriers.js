@@ -42,7 +42,6 @@ useEffect(() => {
              {carriers && ( carriers.map ((carrier) => (
               <ListWidget id={carrier.id} carrierName={carrier.carrierName} link={'/carrier_details'}/>
           )))}
-             <Footer/>
          </div>
         );
 }

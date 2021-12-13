@@ -16,7 +16,7 @@ export const ListWidget = ( props ) => {
           };
           let path
           console.log(props.id.search("connection"))
-          if (props.id.search("connection") == -1)
+          if (props.id.search("connection") == -1 && props.id.search("employees") == -1 && props.id.search("vehicles") == -1)
               path = BaseURL.path + '/api/carriers/' + props.id;
           else
               path = BaseURL.path + '/api/carrier/' + props.id;
@@ -41,7 +41,10 @@ export const ListWidget = ( props ) => {
     const getInfo = async () => {
         let path 
         if (props.id.search("connection") == -1)
+        {
             path = BaseURL.path +'/api/carriers/' + props.id;
+            localStorage.carrierID = props.id
+        }
         else
             path = BaseURL.path + '/api/carrier/' + props.id;
         console.log(path)

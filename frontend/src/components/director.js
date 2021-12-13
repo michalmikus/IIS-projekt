@@ -16,7 +16,10 @@ import ListEmployees from "./list_employees"
 import ListStop from "./list_stops";
 import ChangeCarrier from "./change_carrier";
 import CarrierProfileDetails from "./carrier_profile_details";
-import AddCarrier from "./AddCarrier"
+import AddCarrier from "./AddCarrier";
+import AddConnection from "./AddConnection";
+import AddEmployee from "./AddEmployee";
+import AddVehicle from "./AddVehicle";
 import ConnectionInfo from "./connectionInfo"
 
 const Director = () => {
@@ -25,13 +28,13 @@ const Director = () => {
         <Routes>
             <Route exact path="/" element={<Home/>}/>
             <Route exact path="/login" element={<Login/>}/>
-            <Route exact path="/register" element={<Register/>}/>   
+            <Route exact path="/register" element={<Register/>}/>
             <Route exact path="/user_profile" element={<UserProfile/>}/>
             <Route exact path="/carrier_profile" element={<CarrierProfile/>}/>
             <Route exact path="/employee_profile" element={<EmployeeProfile/>}/>
-            <Route exact path="/admin_profile" element={<AdminProfile/>}/>     
-            <Route exact path="/connections" element={<ListOfConnections/>}/>    
-            <Route exact path="/reserve" element={<ReserveConnection/>}/>  
+            <Route exact path="/admin_profile" element={<AdminProfile/>}/>
+            <Route exact path="/connections" element={<ListOfConnections/>}/>
+            <Route exact path="/reserve" element={<ReserveConnection/>}/>
             <Route exact path="/settings" element={<UserSettings/>}/>
             <Route exact path="/ticket_page" element={<TicketPage/>}/>
             <Route exact path="/list_carriers" element={<ListCarriers/>}/>
@@ -40,6 +43,9 @@ const Director = () => {
             <Route exact path="/change_carrier" element={<ChangeCarrier/>}/>
             <Route exact path="/carrier_details" element={<CarrierProfileDetails/>}/>
             <Route exact path="/create_carrier" element={<AddCarrier/>}/>
+            <Route exact path="/create_connection" element={<AddConnection/>}/>
+            <Route exact path="/create_employee" element={<AddEmployee/>}/>
+            <Route exact path="/create_vehicle" element={<AddVehicle/>}/>
             <Route exact path="/connection_info" element={<ConnectionInfo/>}/>
         </Routes>
     );

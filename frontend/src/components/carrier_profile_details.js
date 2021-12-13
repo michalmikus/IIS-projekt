@@ -9,7 +9,7 @@ import ListWidget from "./ListWidget";
 
 const CarrierProfileDetails = () => {
 
-    const [carrier, setCarrier] = useState({carrierName: "",taxNumber: "", telephoneNumber: "", publicRelationsContact: ""}) 
+    const [carrier, setCarrier] = useState({carrierName: "",taxNumber: "", telephoneNumber: "", publicRelationsContact: ""})
     const [connection, setConnection] = useState(null)
     const [employeeList , setEmployeeList] = useState(null)
     const [vehicleList , setVehicleList] = useState(null)
@@ -29,7 +29,7 @@ const CarrierProfileDetails = () => {
         catch (error) {
             console.log("error:", error);
         }
-        
+
         try {
             let conPath = localStorage.CarierIdPathCon
             console.log("pathCon:", +"connection/all")
@@ -54,7 +54,7 @@ const CarrierProfileDetails = () => {
             console.log("error:", error);
         }
 
-        
+
         try {
             let conPath = localStorage.CarierIdPathCon
             console.log("pathCon:", +"vehicles/all")
@@ -81,17 +81,17 @@ const CarrierProfileDetails = () => {
                 <h3>Kontakt:           {carrier.telephoneNumber}</h3>
                 <h3>Kontaktna Osoba:            {carrier.publicRelationsContact}</h3>
             </div>
-            
+
             <Link to="/change_carrier">
-            <Button label = "Editovat Profil " /> 
+            <Button label = "Editovat Profil " />
             </Link>
-            <Link to ="/settings">
+            <Link to ="/create_connection">
             <Button label = "Přidat spoj" />
             </Link>
-            <Link to ="/settings">
-            <Button label = "Přidat zamestnance" />
+            <Link to ="/create_employee">
+            <Button label = "Přidat zamestnanca" />
             </Link>
-            <Link to ="/settings">
+            <Link to ="/create_vehicle">
             <Button label = "Přidat vozidlo" />
             </Link>
             <h2>Spoje</h2>
