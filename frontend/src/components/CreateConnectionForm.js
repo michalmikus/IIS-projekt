@@ -89,7 +89,7 @@ function ConnectionForm() {
 
 
                 {vehicles && (
-                    <select value={vehicles} onChange={e=>setChoosenVehicle(e.target.value)}><option disabled selected value>Vyberte</option>
+                    <select value={vehicle} onChange={e=>setChoosenVehicle(e.target.value)}><option disabled selected value>Vyberte</option>
                     {vehicles.map((result) => (<option key = {result.id} value = {result.id}>{result.brand}</option>))}
                     </select>
                 )}
