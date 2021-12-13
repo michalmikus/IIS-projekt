@@ -40,7 +40,7 @@ useEffect(() => {
              <Button label = 'Pridat dopravcu'></Button> 
              </Link>
              {carriers && ( carriers.map ((carrier) => (
-              <ListWidget id={carrier.id} carrierName={carrier.carrierName}/>
+              <ListWidget id={carrier.id} carrierName={carrier.carrierName} link={'/carrier_details'}/>
           )))}
              <Footer/>
          </div>

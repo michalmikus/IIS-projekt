@@ -12,7 +12,7 @@ const UserProfile = () => {
     const navigate = useNavigate();
 
     const [users, setUsers] = useState({name: "", surname: "", email: "", phoneNumber: "", country: "", address:""})
-    const [tickets, setTickets] = useState()
+    const [tickets, setTickets] = useState(null)
 
      const getUserTickets = async() => {
 

@@ -7,30 +7,23 @@ import { useNavigate } from "react-router-dom"
 import BaseURL from "./BaseURL"
 
 
-export const ListWidget = ( props ) => {
+export const ConnectionWidgetInfo = ( props ) => {
 
     const handleDelete = () => {
         const requestOptions = {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
           };
-          let path
-          console.log(props.id.search("connection"))
-          if (props.id.search("connection") == -1)
-              path = BaseURL.path + '/api/carriers/' + props.id;
-          else
-              path = BaseURL.path + '/api/carrier/' + props.id;
-          console.log(path)
 
-          fetch(path,requestOptions).then(res => {
+          fetch(localStorage.CarierIdPathCon + '/stops' + props.id,requestOptions).then(res => {
               if (res.ok)
               {
-                  console.log(BaseURL.path + '/api/carriers/' + props.id)
+                  console.log(localStorage.CarierIdPathCon + '/stops' + props.id)
                     window.location.reload();
               }
               else
               {
-                  alert("Mazanie neuspesne skuste znova.")
+                  alert("Mazání neúspěšné, zkuste znovu.")
               }
           }, 
           )   
@@ -43,7 +36,7 @@ export const ListWidget = ( props ) => {
         if (props.id.search("connection") == -1)
             path = BaseURL.path +'/api/carriers/' + props.id;
         else
-            path = BaseURL.path + '/api/carrier/' + props.id;
+            path = BaseURL.path + '/api/carrier' + props.id;
         console.log(path)
         localStorage.CarierIdPathAll = path
         localStorage.CarierIdPathCon = BaseURL.path + "/api/carrier/"+props.id
@@ -83,4 +76,4 @@ export const ListWidget = ( props ) => {
 
 }
 
-export default ListWidget
+export default ConnectionWidgetInfo

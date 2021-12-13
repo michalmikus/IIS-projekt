@@ -17,6 +17,7 @@ import ListStop from "./list_stops";
 import ChangeCarrier from "./change_carrier";
 import CarrierProfileDetails from "./carrier_profile_details";
 import AddCarrier from "./AddCarrier"
+import ConnectionInfo from "./connectionInfo"
 
 const Director = () => {
 
@@ -39,6 +40,7 @@ const Director = () => {
             <Route exact path="/change_carrier" element={<ChangeCarrier/>}/>
             <Route exact path="/carrier_details" element={<CarrierProfileDetails/>}/>
             <Route exact path="/create_carrier" element={<AddCarrier/>}/>
+            <Route exact path="/connection_info" element={<ConnectionInfo/>}/>
         </Routes>
     );
 }

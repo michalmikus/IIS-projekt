@@ -36,7 +36,7 @@ const ListOfConnections = () => {
         return (
             <div id="list_of_connections">
                 <Header/>
-                <h1>{connection[1].connectionName}</h1>
+                <h1>{connection[0].connectionName}</h1>
                 {connection && ( connection.map ((widget) => (
                     <ConnectionWidget key={widget.id} connectionName={widget.connectionName} connectionId={widget.connectionId} stopName={widget.stopName} timeOfDeparture={widget.timeOfDeparture}/>
                 )))}

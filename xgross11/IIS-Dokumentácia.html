@@ -1,0 +1,54 @@
+
+Autoøi
+    První jméno Michal Miku¹
+    <mailto: xmikus@vutbr.cz> - Návrh a implementácia databázy v Entity Framework.
+                                Repositáre s obslu¾nými funkciami databázy.
+                                Navrhnutie DetailModelov a ViewModelov na ktoré sa entity mapujú.
+                                Nastavenie aplikácie v DOT.NET aj s autentifikaciou a moznostou sa prihlasit.
+                                Návrh controlerov s ich následnou implementáciou a návrhmi hierarchie IS. 
+                                ©truktúra stránok na frontende.
+                                Napájanie jednotlivých komponent na jednotlivé controlery.
+
+    Druhé jméno ®aneta Grossová
+    <mailto: xgross11@vutbr.cz> - Implementácia frontendu a komunikácie s API.
+                                  Návrh ¹týlovania stránok. 
+                                  O¹etrenie chybných stavov na frontende
+    Tøetí jméno Roman Markek
+    <mailto: xmarek74@vutbr.cz> - Návrh ¹týlovania stránok. 
+                                  Vytváranie formulárov.
+                                  Pomoc pri implementácii komunikácie frontendu a API
+URL aplikace
+    Git s vypracovanou API.
+    <https://github.com/michalmikus/IIS-Api.git>
+    <https://github.com/michalmikus/TransportIS>
+    Git s frontendom.
+    <https://github.com/michalmikus/IIS-projekt.git>
+    
+    (pokud má aplikace více vstupních stránek, napi¹te obdobnì dal¹í URL)
+
+
+    U¾ivatelé systému pro testování
+
+    Implementace
+
+    Pri implementácii bol vyu¾itý Entity Framework s MVC DOT.NET App. Finálny návrh databázy sa od ERD mô¾e trochu lí¹i» nakoµko vo vývojovej
+    fáze narazilo na viacero problémov s aktuálnym návrhom tak sa upravil podµa potreby. Zaèal som vytvorením si entít pre jednotlivé atribúty
+    zadania neskôr som vyrvoril DbContext ku ktorému sa v EF v databáze pristupuje. Ïaµej som si navrhol Generickú Repository ktorá pre ka¾dú entitu 
+    podµa potreby implementovala obslu¾né funkcie ako: Insert, Update, GetQueryable, GetAll, GetById . Nasledoval návrh ListModelov a DetailModelov,
+    na mapovanie bol vyu¾itý automaper s obèasnou implementáciou vlastného mapovanie. Funkcie z repozitára sa vyu¾ívali nad DbContextom v Controleroch.
+    Controlery boli tvorené poïµa hierarchického návrhu systému.
+
+    Frontend je napísaný v Reacte. Delený do komponent. Ktoré posielaju Requesty na API a vypisujú potrebné info u¾íva»eµovi.
+
+
+      Databáze
+
+Zde vlo¾te grafické schéma relaèní databáze (tabulek v databázi).
+
+
+    Instalace
+
+Struènì popi¹te:
+    Pri tvorení sme narazili na viacero problémov pri tvorení frontendu nakoµko API bola u¾ hotová dos» dlho na¹e tempo nestaèilo na vyu¾itie ka¾dej funkcie ktorá 
+    bola implementovaná preto pripájam verejné repozitáre v ktorých je kód k nahliadnutiu.
+
