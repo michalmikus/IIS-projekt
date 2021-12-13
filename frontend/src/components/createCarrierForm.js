@@ -9,7 +9,7 @@ function CreateCarrierForm() {
 
     const navigate = useNavigate();
     
-    const [state, setState] = useState({name: "", surname: "",login: "", email: "", password: "", address_field: "", phone_number: ""});
+    const [state, setState] = useState({fullname: "",login: "", email: "", password: "", address_field: "", phone_number: "",taxnumber: "", telephonenumber: "", pr_conntact: "", country: ""});
 
     const path = BaseURL.path + '/api/carriers';
 
@@ -113,7 +113,7 @@ function CreateCarrierForm() {
         
         setState({fullname: "",login: "", email: "", password: "", address_field: "", phone_number: "",taxnumber: "", telephonenumber: "", pr_conntact: "", country: ""});
 
-        navigate('/carrier_details');
+        navigate('/list_carriers');
 
     }
 
@@ -122,7 +122,7 @@ function CreateCarrierForm() {
 
                 <input type = "email" id="user_email" name="email" placeholder="E-mail" value={state.email} onChange={ handleChange }></input>
 
-                <input type = "text" id="user_fullname" name="name" placeholder="Jméno" value={state.name} onChange={ handleChange } ></input>
+                <input type = "text" id="user_fullname" name="name" placeholder="Cele Jméno" value={state.name} onChange={ handleChange } ></input>
 
                 <input type = "text" id="login" name="login" placeholder="Užívaťeľské meno" value={state.login} onChange={ handleChange }></input>
 
@@ -132,13 +132,13 @@ function CreateCarrierForm() {
                 
                 <input type = "country" id="country_field" name="country" placeholder="Krajina" value={state.country} onChange={ handleChange }></input>
 
-                <input type = "text" id="user_name" name="carriername" placeholder="Jméno" value={state.carriername} onChange={ handleChange } ></input>
+                <input type = "text" id="user_name" name="carriername" placeholder="Nazov Dopravcu" value={state.carriername} onChange={ handleChange } ></input>
 
                 <input type = "text" id="tax_num" name="taxnumber" placeholder="IČO" value={state.taxnumber} onChange={ handleChange }></input>
 
                 <input type = "text" id="pr_con" name="pr_conntact" placeholder="Kontaktná osoba" value={state.pr_conntact} onChange={ handleChange }></input>
 
-                <input type = "number" id="user_phone_number" name="telephone" placeholder="Telefonní číslo" value={state.telephonenumber} onChange={ handleChange }></input>
+                <input type = "number" id="user_phone_number" name="telephonenumber" placeholder="Telefonní číslo" value={state.telephonenumber} onChange={ handleChange }></input>
                 <Button label='Registrovat' onClick={handleClick}/>
 
             </form>

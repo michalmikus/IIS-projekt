@@ -85,13 +85,13 @@ const CarrierProfileDetails = () => {
             <Link to="/change_carrier">
             <Button label = "Editovat Profil " /> 
             </Link>
-            <Link to ="/settings">
+            <Link to ="/create_connection">
             <Button label = "Přidat spoj" />
             </Link>
-            <Link to ="/settings">
+            <Link to ="/create_employee">
             <Button label = "Přidat zamestnanca" />
             </Link>
-            <Link to ="/settings">
+            <Link to ="/create_vehicle">
             <Button label = "Přidat vozidlo" />
             </Link>
             <h2>Spoje</h2>

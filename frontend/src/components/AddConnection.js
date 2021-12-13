@@ -1,19 +1,19 @@
 import React from "react";
 import Header from './Header';
 import Footer from './Footer';
-import CreateCarrierForm from "./CreateCarrierForm";
+import CreateConnectionForm from "./CreateConnectionForm";
 
 
 
-const AddCarrier = () => {
+const AddVehicle = () => {
 
 return (
     <div>
         <Header/>
-        <CreateCarrierForm></CreateCarrierForm>
+        <CreateConnectionForm></CreateConnectionForm>
         <Footer/>
     </div>
 );
 
 }
-export default AddCarrier
+export default AddVehicle

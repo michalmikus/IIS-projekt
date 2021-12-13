@@ -1,19 +1,19 @@
 import React from "react";
 import Header from './Header';
 import Footer from './Footer';
-import CreateCarrierForm from "./CreateCarrierForm";
+import CreateEmployeeForm from "./CreateEmployeeForm";
 
 
 
-const AddCarrier = () => {
+const AddVehicle = () => {
 
 return (
     <div>
         <Header/>
-        <CreateCarrierForm></CreateCarrierForm>
+        <CreateEmployeeForm></CreateEmployeeForm>
         <Footer/>
     </div>
 );
 
 }
-export default AddCarrier
+export default AddVehicle

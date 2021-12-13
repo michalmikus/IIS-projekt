@@ -26,7 +26,7 @@ const ChangeCarrierForm = () => {
             TelephoneNumber: state.telephonenumber,
             PublicRelationsContact: state.pr_conntact
         }
-        const path = CarrierDetail.path
+        const path = localStorage.CarierIdPathAll
         console.log("path",path)
         const requestOptions = {
             method: 'PUT',
