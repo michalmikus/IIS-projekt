@@ -29,7 +29,7 @@ const ConnectionInfo = () => {
 
         try {
             console.log("path:",localStorage.CarierIdPathCon)
-            const res = await fetch(localStorage.CarierIdPathCon + '/stops');
+            const res = await fetch(localStorage.CarierIdPathCon + '/stops/forConnection');
             const datas = await res.json();
             console.log("Stops info:", datas);
             setStops(datas);
@@ -53,7 +53,7 @@ const ConnectionInfo = () => {
             </div>
             
             <ProfileButton link={"/"} label="Editovat Spoj" onClink={getDetail}/> 
-            <ProfileButton link={"/"} label="Přidat zastávku" onClink={getDetail}/> 
+            <ProfileButton link={"/create_stop"} label="Přidat zastávku"/> 
 
             {stopsInfo && ( stopsInfo.map ((stop) => (
               <ConnectionInfoWidget id={stop.id} carrierName={stop.name} link={'/stop_info'}/>)))}

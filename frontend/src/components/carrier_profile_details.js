@@ -17,10 +17,9 @@ const CarrierProfileDetails = () => {
     let carrierId = localStorage.CarierIdPathAll.slice(localStorage.CarierIdPathAll.length-36)
 
     const getDetail = async () => {
-
+        let conPath = localStorage.CarrierInfo
         try {
-            console.log("path:",localStorage.CarierIdPathAll)
-            const res = await fetch(localStorage.CarierIdPathAll);
+            const res = await fetch(localStorage.CarriersInfo);
             const datas = await res.json();
             console.log("Filtered connections:", datas);
             setCarrier(datas);
@@ -31,7 +30,6 @@ const CarrierProfileDetails = () => {
         }
 
         try {
-            let conPath = localStorage.CarierIdPathCon
             console.log("pathCon:", +"connection/all")
             const response = await fetch(conPath+"/connection/all");
             const connections = await response.json();
@@ -43,7 +41,6 @@ const CarrierProfileDetails = () => {
         }
 
         try {
-            let conPath = localStorage.CarierIdPathCon
             console.log("pathCon:", +"employees/all")
             const response = await fetch(conPath+"/employees/all");
             const employees = await response.json();
@@ -56,7 +53,6 @@ const CarrierProfileDetails = () => {
 
 
         try {
-            let conPath = localStorage.CarierIdPathCon
             console.log("pathCon:", +"vehicles/all")
             const response = await fetch(conPath+"/vehicles/all");
             const vehicles = await response.json();
