@@ -4,7 +4,7 @@ import { useState } from "react";
 import ConnectionInfo from './SelectedConnectionInfo';
 import { useNavigate } from "react-router-dom"
 
-function EmployeeForm() {
+function VehicleForm() {
 
     const navigate = useNavigate();
     
@@ -77,4 +77,4 @@ function EmployeeForm() {
     )
 }
 
-export default EmployeeForm;
+export default VehicleForm;

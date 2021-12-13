@@ -41,7 +41,10 @@ export const ListWidget = ( props ) => {
     const getInfo = async () => {
         let path 
         if (props.id.search("connection") == -1)
+        {
             path = BaseURL.path +'/api/carriers/' + props.id;
+            localStorage.carrierID = props.id
+        }
         else
             path = BaseURL.path + '/api/carrier/' + props.id;
         console.log(path)

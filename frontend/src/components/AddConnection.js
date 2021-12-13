@@ -1,11 +1,11 @@
 import React from "react";
 import Header from './Header';
 import Footer from './Footer';
-import CreateConnectionForm from "./CreateConnectionForm";
+import CreateConnectionForm from "./CreateConnectionForm.js";
 
 
 
-const AddVehicle = () => {
+const AddConnection = () => {
 
 return (
     <div>
@@ -16,4 +16,4 @@ return (
 );
 
 }
-export default AddVehicle
+export default AddConnection
