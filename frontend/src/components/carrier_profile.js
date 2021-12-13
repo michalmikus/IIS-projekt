@@ -8,9 +8,10 @@ const CarrierProfile = () => {
 
     const navigate = useNavigate();
 
-    if(localStorage.UserType !== "admin") {
+    if(localStorage.UserType != "Admin") {
         navigate('/');
     }
+    
 
     else{
         return (
@@ -25,3 +26,5 @@ const CarrierProfile = () => {
 }
 
 export default CarrierProfile;
+
+

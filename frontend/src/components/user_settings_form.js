@@ -19,8 +19,8 @@ function SettingsForm() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(object)
         };
-        console.log("path=",ConnectionInfo.url)
-        const path = ConnectionInfo.url
+        console.log("path=",localStorage.Url+"/passengers/"+localStorage.UserId)
+        const path = localStorage.Url+"/passengers/"+localStorage.UserId
         try {
             const res = await fetch(path, requestOptions);
             const datas = await res.json();

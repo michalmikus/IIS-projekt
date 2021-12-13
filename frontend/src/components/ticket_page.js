@@ -21,7 +21,7 @@ const TicketPage = () => {
         //ConnectionInfo.url = api/carrier/carrierID/connection/connectionID
 
         try {
-            const res = await fetch(localStorage.Url+'/stops/');
+            const res = await fetch(localStorage.Url+'/stops/forConnection');
             const datas = await res.json();
             console.log("Stops:", datas);
             setBoardingStops(datas);
@@ -48,7 +48,7 @@ const TicketPage = () => {
         };
 
         try {
-            const path = localStorage.Url+'/connection/'+localStorage.ConnectionId+'/passenger/'+localStorage.UserId+'/ticket';
+            const path = localStorage.Url+'/passenger/'+localStorage.UserId+'/ticket';
             console.log("TicketPath:", path);
             const res = await fetch(path, requestOptions);
             const datas = await res.json();

@@ -2,8 +2,11 @@ import React from 'react'
 import Button from './Button'
 import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
+import BaseURL from "./BaseURL"
 
 const SearchForm = () => {
+
+    localStorage.LastUrl = "/";
 
     const navigate = useNavigate();
 
@@ -13,7 +16,7 @@ const SearchForm = () => {
 
     const getResult = async () => {
         try {
-            const res = await fetch("https://localhost:7293/api/home");
+            const res = await fetch(BaseURL.path + "/api/home");
             const datas = await res.json();
             console.log("All connections:", datas);
             setConnection(datas);
@@ -53,8 +56,6 @@ const SearchForm = () => {
         <form id="search_form">
 
             <label class="select_box">
-
-            <h2>{selectedID}</h2>
 
             {connection && (
                 <select class="item" value={selectedID} default onChange={e=>setSelects(e.target.value)}><option disabled selected value>Vyberte spoj</option>

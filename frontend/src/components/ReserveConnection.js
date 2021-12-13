@@ -10,6 +10,7 @@ const ReserveConnection = () => {
     const navigate = useNavigate();
 
     const LogIn = () => {
+          localStorage.LastUrl = "/user_profile"
           navigate('/login');
         }
 

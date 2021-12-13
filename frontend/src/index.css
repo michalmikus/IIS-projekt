@@ -16,7 +16,8 @@ button {
   border: none;
   width: fit-content;
   margin: auto;
-  margin-top: 0.8em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   border-radius: 0.3em;
 }
 
@@ -58,6 +59,7 @@ footer {
   padding: 1.5em;
   position: absolute;
   bottom: 0;
+  right: 0;
 }
 
 footer img {

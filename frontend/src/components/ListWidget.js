@@ -3,6 +3,8 @@ import Button from "./Button";
 import { useState } from "react";
 import CarrierDetail from "./carrierDetail";
 import ProfileButton from "./profile_button";
+import { useNavigate } from "react-router-dom"
+import BaseURL from "./BaseURL"
 
 
 export const ListWidget = ( props ) => {
@@ -12,28 +14,39 @@ export const ListWidget = ( props ) => {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
           };
-    
-          const path = 'http://transport-is.azurewebsites.net/api/carriers/'+props.id;
+          let path
+          console.log(props.id.search("connection"))
+          if (props.id.search("connection") == -1)
+              path = BaseURL.path + '/api/carriers/' + props.id;
+          else
+              path = BaseURL.path + '/api/carrier/' + props.id;
           console.log(path)
 
           fetch(path,requestOptions).then(res => {
               if (res.ok)
               {
-                    console.log('http://transport-is.azurewebsites.net/api/carriers/'+props.id)
-                    window.location.reload()
+                  console.log(BaseURL.path + '/api/carriers/' + props.id)
+                    window.location.reload();
               }
-          },
-          )
-
-          
+              else
+              {
+                  alert("Mazanie neuspesne skuste znova.")
+              }
+          }, 
+          )   
     }
 
     const [carrier, setCarrier] = useState();
 
     const getInfo = async () => {
-        const path = 'http://transport-is.azurewebsites.net/api/carriers/'+props.id;
-        CarrierDetail.path = path;
-
+        let path 
+        if (props.id.search("connection") == -1)
+            path = BaseURL.path +'/api/carriers/' + props.id;
+        else
+            path = BaseURL.path + '/api/carrier/' + props.id;
+        console.log(path)
+        localStorage.CarierIdPathAll = path
+        localStorage.CarierIdPathCon = BaseURL.path + "/api/carrier/"+props.id
         try {
             const res = await fetch(path);
             const datas = await res.json();

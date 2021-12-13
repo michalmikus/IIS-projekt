@@ -3,6 +3,7 @@ import LinkButton from "./LinkButton";
 import { useState } from "react";
 import ConnectionInfo from './SelectedConnectionInfo'
 import { useNavigate } from "react-router-dom"
+import BaseURL from "./BaseURL"
 
 function LoginForm() {
 
@@ -29,7 +30,7 @@ function LoginForm() {
         body: JSON.stringify(object)
       };
 
-      const path = 'http://transport-is.azurewebsites.net/api/account/sign-in';
+        const path = BaseURL.path + '/api/account/sign-in';
 
       try {
           const res = await fetch(path, requestOptions);
@@ -39,9 +40,10 @@ function LoginForm() {
             localStorage.UserId = datas.userId;
             localStorage.UserType = datas.userType;
             localStorage.SignedIn = true;
+            console.log(localStorage.UserType)
 
-            if(localStorage.UserType === "admin") {
-
+            if(localStorage.UserType == "Admin") {
+              navigate("/list_carriers")
             }
 
             else if (localStorage.UserType === "carrier") {

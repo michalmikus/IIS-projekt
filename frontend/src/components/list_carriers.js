@@ -4,12 +4,15 @@ import Footer from './Footer';
 import { useState, useEffect } from "react";
 import ListWidget from "./ListWidget";
 import Button from "./Button";
+import { Link } from "react-router-dom";
+import BaseURL from "./BaseURL"
+
 
 const ListCarriers = () => {
 
     const [carriers, setCarriers] = useState()
 
-    const path = 'http://transport-is.azurewebsites.net/api/carriers/all';
+    const path = BaseURL.path + '/api/carriers/all';
     console.log("path:", path);
 
 const getResult = async () => {
@@ -33,7 +36,9 @@ useEffect(() => {
     return (
         <div>
              <Header/>
+             <Link to="/create_carrier">
              <Button label = 'Pridat dopravcu'></Button> 
+             </Link>
              {carriers && ( carriers.map ((carrier) => (
               <ListWidget id={carrier.id} carrierName={carrier.carrierName}/>
           )))}

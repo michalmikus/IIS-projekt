@@ -2,6 +2,7 @@ import bus_img from './bus_picture.png';
 import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import Button from './Button'
+import BaseURL from "./BaseURL"
 
 
 const Header = () => {
@@ -15,7 +16,7 @@ const Header = () => {
         };
 
         try {
-            const res = await fetch('http://transport-is.azurewebsites.net/api/account/sign-out', requestOptions);
+            const res = await fetch(BaseURL.path + '/api/account/sign-out', requestOptions);
             console.log(res);
             if(res.status === 200) {
               delete localStorage.UserId;
@@ -41,7 +42,7 @@ const Header = () => {
     if(localStorage.SignedIn === "true") {
       return (
         <header>
-          <a href="http://transport-is.azurewebsites.net/">
+          <a href="https://transport-is-fronted.azurewebsites.net/">
           <img src={bus_img} alt="autobus"></img>
            </a>
            <div class="header_links">
@@ -57,7 +58,7 @@ const Header = () => {
     else {
       return (
         <header>
-          <a href="http://transport-is.azurewebsites.net/">
+          <a href="https://transport-is-fronted.azurewebsites.net/">
           <img src={bus_img} alt="autobus"></img>
            </a>
            <div class="header_links">

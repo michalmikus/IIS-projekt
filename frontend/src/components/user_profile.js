@@ -5,33 +5,55 @@ import LinkButton from "./LinkButton";
 import { useState, useEffect } from "react";
 import ConnectionInfo from "./SelectedConnectionInfo";
 import { useNavigate } from "react-router-dom"
+import TicketWidget from "./TicketWidget.js";
 
 const UserProfile = () => {
 
     const navigate = useNavigate();
 
     const [users, setUsers] = useState({name: "", surname: "", email: "", phoneNumber: "", country: "", address:""})
+    const [tickets, setTickets] = useState()
 
-     const getResult = async () => {
+     const getUserTickets = async() => {
 
-         try {
+        try {
+            const res = await fetch(localStorage.Url+'/passenger/'+localStorage.UserId+'/ticket/all');
+            const datas = await res.json();
+            console.log("Ticket data", datas);
+            setTickets(datas);
+        }
+        catch (error) {
+            console.log("error:", error);
+        }
+     }
+
+     const getUserInfo = async () => {
+
+        getUserTickets()
+
+        try {
              const res = await fetch(localStorage.Url+'/passengers/'+localStorage.UserId);
              const datas = await res.json();
              setUsers(datas);
          }
-         catch (error) {
+        catch (error) {
             console.log("error:", error);
          }
+
      };
 
      useEffect(() => {
         const timer = setTimeout(() => {
-            getResult()
+            getUserInfo()
         }, 1000);
         return () => clearTimeout(timer);
       }, []);
 
     const doNothing = () => {
+        if(localStorage.Amount < 1) {
+            alert("Není vybraný žádný spoj. Vyplňte prosím údaje spojení.");
+            navigate('/');
+        }
 
     }
 
@@ -47,8 +69,12 @@ const UserProfile = () => {
                 <h4> {users.address.country} </h4>
             </div>
 
-            <LinkButton label = "Koupit jízdenku" link="/ticket_page" onClick={doNothing}/>
+            <LinkButton label = "Koupit vybranou jízdenku" link="/ticket_page" onClick={doNothing}/>
             <LinkButton label = "Nastavení" link="/settings" onClick={doNothing}/>
+            <h2> Historie nakoupených jízdenek </h2>
+            {tickets && ( tickets.map ((ticket) => ( 
+              <TicketWidget key={ticket.id} BoardingStopName={ticket.boardingStopName} DestinationStopName={ticket.destinationStopName} Price={ticket.price} Type={ticket.type}/>
+            )))}
 
             <Footer/>
         </div>
