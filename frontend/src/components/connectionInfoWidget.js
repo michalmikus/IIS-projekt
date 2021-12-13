@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import BaseURL from "./BaseURL"
 
 
-export const ConnectionWidgetInfo = ( props ) => {
+export const ConnectionInfoWidget = ( props ) => {
 
     const handleDelete = () => {
         const requestOptions = {
@@ -15,11 +15,15 @@ export const ConnectionWidgetInfo = ( props ) => {
             headers: { 'Content-Type': 'application/json' },
           };
 
-          fetch(localStorage.CarierIdPathCon + '/stops' + props.id,requestOptions).then(res => {
+          const path = localStorage.CarierIdPathCon + '/stops/' + props.id;
+          console.log("Delete path:" + path);
+          localStorage.deletePath = path;
+
+          fetch(path, requestOptions).then(res => {
               if (res.ok)
               {
-                  console.log(localStorage.CarierIdPathCon + '/stops' + props.id)
-                    window.location.reload();
+                  console.log("Delete path:" + localStorage.CarierIdPathCon + '/stops/' + props.id)
+                  window.location.reload();
               }
               else
               {
@@ -76,4 +80,4 @@ export const ConnectionWidgetInfo = ( props ) => {
 
 }
 
-export default ConnectionWidgetInfo
+export default ConnectionInfoWidget

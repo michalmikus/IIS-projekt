@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import CarrierDetail from "./carrierDetail";
 import ProfileButton from "./profile_button";
 import BaseURL from "./BaseURL"
-import ListWidget from "./ListWidget";
+import ConnectionInfoWidget from "./connectionInfoWidget";
 
 const ConnectionInfo = () => {
 
@@ -29,7 +29,7 @@ const ConnectionInfo = () => {
 
         try {
             console.log("path:",localStorage.CarierIdPathCon)
-            const res = await fetch(localStorage.CarierIdPathCon + '/stops/forConnection');
+            const res = await fetch(localStorage.CarierIdPathCon + '/stops');
             const datas = await res.json();
             console.log("Stops info:", datas);
             setStops(datas);
@@ -56,7 +56,7 @@ const ConnectionInfo = () => {
             <ProfileButton link={"/"} label="Přidat zastávku" onClink={getDetail}/> 
 
             {stopsInfo && ( stopsInfo.map ((stop) => (
-              <ListWidget id={stop.id} carrierName={stop.name} link={'/stop_info'}/>)))}
+              <ConnectionInfoWidget id={stop.id} carrierName={stop.name} link={'/stop_info'}/>)))}
               
         </div>
     );
