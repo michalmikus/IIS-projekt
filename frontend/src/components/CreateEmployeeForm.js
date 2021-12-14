@@ -25,7 +25,6 @@ function EmployeeForm() {
         try {
             const res = await fetch(path, requestOptions);
             const datas = await res.json();
-            localStorage.UserId = datas.userId;
             console.log("loginForm:", ConnectionInfo.url);
         }
         catch (error) {

@@ -3,7 +3,6 @@ import Button from "./Button";
 import { useState } from "react";
 import CarrierDetail from "./carrierDetail";
 import ProfileButton from "./profile_button";
-import { useNavigate } from "react-router-dom"
 import BaseURL from "./BaseURL"
 
 
@@ -63,7 +62,7 @@ export const ConnectionInfoWidget = ( props ) => {
          <div className="container">
                 <ul className="responsive-table">
                     <li className="table-row">
-                    <div className="col col-1" >{props.carrierName}</div>
+                    <div className="col col-1" >{props.stopName}</div>
                     
                     <div className="col col-1" >
                         <ProfileButton link={props.link} label = 'Info' onClick={getInfo}></ProfileButton>
