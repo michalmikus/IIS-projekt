@@ -8,6 +8,7 @@ import CarrierDetail from "./carrierDetail";
 import ProfileButton from "./profile_button";
 import BaseURL from "./BaseURL"
 import ConnectionInfoWidget from "./connectionInfoWidget";
+import TicketWidget from "./TicketWidget.js"
 
 const EmployeeInfo = () => {
 
@@ -61,15 +62,13 @@ const EmployeeInfo = () => {
             console.log("error:", error);
         }
 
-        //getTickets();
+        getTickets();
     }
 
-   /* const getTickets = async () => {
-
-        "api/carrier/{carrierId}/connection/{connectionId}/passenger/{passengerId}/ticket"
+    const getTickets = async () => {
 
         try {
-            const res = await fetch(BaseURL.path + '/api/carriers/'localStorage.Url+'/passenger/'+localStorage.UserId+'/ticket/all');
+            const res = await fetch(BaseURL.path + '/api/carriers/' +carrierId+'/passenger/'+userInfo.id+'/ticket/allForCarrier');
             const datas = await res.json();
             console.log("Ticket data", datas);
             setTickets(datas);
@@ -77,7 +76,7 @@ const EmployeeInfo = () => {
         catch (error) {
             console.log("error:", error);
         }
-    }*/
+    }
 
     useEffect(() => {
         getDetail();
@@ -95,9 +94,9 @@ const EmployeeInfo = () => {
 
             <ProfileButton link={"/employee_settings"} label="Editovat profil" />
 
-          {/*}  {tickets && ( tickets.map ((ticket) => ( 
-            / <TicketWidget key={ticket.id} BoardingStopName={ticket.boardingStopName} DestinationStopName={ticket.destinationStopName} Price={ticket.price} Type={ticket.type}/>
-          )))} {*/}
+            {tickets && ( tickets.map ((ticket) => ( 
+             <TicketWidget key={ticket.id} BoardingStopName={ticket.boardingStopName} DestinationStopName={ticket.destinationStopName} Price={ticket.price} Type={ticket.type}/>
+          )))}
 
         </div>
     );
