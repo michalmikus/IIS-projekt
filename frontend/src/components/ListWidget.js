@@ -55,6 +55,12 @@ export const ListWidget = ( props ) => {
         console.log(path)
         localStorage.CarierIdPathAll = path
         localStorage.CarierIdPathCon = BaseURL.path + "/api/carrier/"+props.id
+
+        if (props.id.search("connection") == -1 && props.id.search("") == -1)
+        {
+            localStorage.CarrierInfo = BaseURL.path + "/api/carrier/"+props.id
+            localStorage.CarriersInfo = BaseURL.path + "/api/carriers/"+props.id
+        }
         try {
             const res = await fetch(path);
             const datas = await res.json();

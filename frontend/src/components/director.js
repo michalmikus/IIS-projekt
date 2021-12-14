@@ -23,6 +23,7 @@ import AddVehicle from "./AddVehicle";
 import ConnectionInfo from "./connectionInfo"
 import EmployeeInfo from "./EmployeeInfo"
 import EmployeeSettings from "./EmployeeSettings"
+import AddStop from "./AddStop";
 
 const Director = () => {
 
@@ -51,6 +52,7 @@ const Director = () => {
             <Route exact path="/connection_info" element={<ConnectionInfo/>}/>
             <Route exact path="/employee_info" element={<EmployeeInfo/>}/>
             <Route exact path="/employee_settings" element={<EmployeeSettings/>}/>
+            <Route exact path="/create_stop" element={<AddStop/>}/>
         </Routes>
     );
 }
