@@ -51,7 +51,7 @@ export const ListWidget = ( props ) => {
         localStorage.CarierIdPathAll = path
         localStorage.CarierIdPathCon = BaseURL.path + "/api/carrier/"+props.id
 
-        if (props.id.search("connection") == -1 && props.id.search("") == -1)
+        if (props.id.search("connection") == -1)
         {
             localStorage.CarrierInfo = BaseURL.path + "/api/carrier/"+props.id
             localStorage.CarriersInfo = BaseURL.path + "/api/carriers/"+props.id

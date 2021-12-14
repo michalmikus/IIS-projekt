@@ -30,7 +30,7 @@ const CarrierProfileDetails = () => {
         }
 
         try {
-            console.log("pathCon:", +"connection/all")
+            console.log("pathCon:",conPath +"connection/all")
             const response = await fetch(conPath+"/connection/all");
             const connections = await response.json();
             console.log("Connections:", connections);
@@ -41,7 +41,7 @@ const CarrierProfileDetails = () => {
         }
 
         try {
-            console.log("pathCon:", +"employees/all")
+            console.log("pathCon:",conPath +"employees/all")
             const response = await fetch(conPath+"/employees/all");
             const employees = await response.json();
             console.log("Employees:", employees);
@@ -53,7 +53,7 @@ const CarrierProfileDetails = () => {
 
 
         try {
-            console.log("pathCon:", +"vehicles/all")
+            console.log("pathCon:",conPath +"vehicles/all")
             const response = await fetch(conPath+"/vehicles/all");
             const vehicles = await response.json();
             console.log("Vehicles:", vehicles);
