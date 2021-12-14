@@ -14,7 +14,7 @@ function ConnectionForm() {
     const [vehicles, setVehicles] = useState(null);
     const [vehicle, setChoosenVehicle] = useState(null);
 
-    const path = localStorage.CarierIdPathCon + "/connection";
+    const path = localStorage.CarrierInfo + "/connection";
 
     const sendJSON = async (object) => {
 
@@ -64,7 +64,7 @@ function ConnectionForm() {
 
     
     const getResult = async () => {
-        const path = BaseURL.path + "/api/carrier/" + localStorage.carrierID + "/vehicles/all"
+        const path = localStorage.CarrierInfo + "/vehicles/all"
         console.log("getVehicles: ",path)
         try {
             const res = await fetch(path);

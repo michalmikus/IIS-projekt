@@ -10,7 +10,7 @@ function VehicleForm() {
     
     const [state, setState] = useState({brand:"",model:"",seats:"",description:""});
 
-    const path = localStorage.CarierIdPathCon + "/vehicles";
+    const path = localStorage.CarrierInfo + "/vehicles";
 
     const sendJSON = async (object) => {
 
