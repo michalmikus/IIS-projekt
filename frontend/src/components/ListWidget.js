@@ -39,6 +39,11 @@ export const ListWidget = ( props ) => {
     const [carrier, setCarrier] = useState();
 
     const getInfo = async () => {
+
+        if (props.id.search("empolyee") == -1) {
+            localStorage.EmployeeId = props.id.slice(props.id.length - 36);
+        }
+
         let path 
         if (props.id.search("connection") == -1)
         {
@@ -50,6 +55,12 @@ export const ListWidget = ( props ) => {
         console.log(path)
         localStorage.CarierIdPathAll = path
         localStorage.CarierIdPathCon = BaseURL.path + "/api/carrier/"+props.id
+
+        if (props.id.search("connection") == -1)
+        {
+            localStorage.CarrierInfo = BaseURL.path + "/api/carrier/"+props.id
+            localStorage.CarriersInfo = BaseURL.path + "/api/carriers/"+props.id
+        }
         try {
             const res = await fetch(path);
             const datas = await res.json();

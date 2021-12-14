@@ -10,7 +10,7 @@ function VehicleForm() {
     
     const [state, setState] = useState({brand:"",model:"",seats:"",description:""});
 
-    const path = localStorage.CarierIdPathCon + "/vehicles";
+    const path = localStorage.CarrierInfo + "/vehicles";
 
     const sendJSON = async (object) => {
 
@@ -25,7 +25,6 @@ function VehicleForm() {
         try {
             const res = await fetch(path, requestOptions);
             const datas = await res.json();
-            localStorage.UserId = datas.userId;
             console.log("loginForm:", ConnectionInfo.url);
         }
         catch (error) {
