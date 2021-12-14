@@ -39,6 +39,11 @@ export const ListWidget = ( props ) => {
     const [carrier, setCarrier] = useState();
 
     const getInfo = async () => {
+
+        if (props.id.search("empolyee") == -1) {
+            localStorage.EmployeeId = props.id.slice(props.id.length - 36);
+        }
+
         let path 
         if (props.id.search("connection") == -1)
         {

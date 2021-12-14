@@ -46,8 +46,12 @@ function LoginForm() {
               navigate("/list_carriers")
             }
 
-            else if (localStorage.UserType === "carrier") {
-              
+            else if (localStorage.UserType === "Carrier") {
+              navigate("/carrier_details")
+            }
+
+            else if (localStorage.UserType === "Emploee") {
+              navigate("/employee_info")
             }
 
             else {
