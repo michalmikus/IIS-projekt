@@ -20,10 +20,7 @@ const CarrierProfileDetails = () => {
     let carrierId = localStorage.CarierIdPathAll.slice(localStorage.CarierIdPathAll.length-36)
 
     const getDetail = async () => {
-        
         let conPath = localStorage.CarrierInfo
-        
-
         try {
             const res = await fetch(localStorage.CarriersInfo);
             const datas = await res.json();
@@ -110,6 +107,8 @@ const CarrierProfileDetails = () => {
 
             </div>
         );
+
+
 
 }
 

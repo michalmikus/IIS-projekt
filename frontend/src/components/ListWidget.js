@@ -32,8 +32,8 @@ export const ListWidget = ( props ) => {
               {
                   alert("Mazanie neuspesne skuste znova.")
               }
-          }, 
-          )   
+          },
+          )
     }
 
     const [carrier, setCarrier] = useState();
@@ -44,7 +44,7 @@ export const ListWidget = ( props ) => {
             localStorage.EmployeeId = props.id.slice(props.id.length - 36);
         }
 
-        let path 
+        let path
         if (props.id.search("connection") == -1)
         {
             path = BaseURL.path +'/api/carriers/' + props.id;
@@ -64,7 +64,7 @@ export const ListWidget = ( props ) => {
         try {
             const res = await fetch(path);
             const datas = await res.json();
-            
+
             console.log("carrier detail", CarrierDetail);
             setCarrier(datas);
         }
@@ -72,8 +72,8 @@ export const ListWidget = ( props ) => {
             console.log("error:", error);
         }
     }
- 
-    
+
+
 
     return (
 
@@ -81,15 +81,15 @@ export const ListWidget = ( props ) => {
                 <ul className="responsive-table">
                     <li className="table-row">
                     <div className="col col-1" >{props.carrierName}</div>
-                    
+
                     <div className="col col-1" >
                         <ProfileButton link={props.link} label = 'Info' onClick={getInfo}></ProfileButton>
                     </div>
-                    
+
                     <div className="col col-1" >
                         <Button label = 'Odstranit' onClick={handleDelete}></Button>
                     </div>
-                    
+
                     </li>
                 </ul>
             </div>
