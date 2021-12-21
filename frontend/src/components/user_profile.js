@@ -73,7 +73,7 @@ const UserProfile = () => {
             <LinkButton label = "Nastavení" link="/settings" onClick={doNothing}/>
             <h2> Historie nakoupených jízdenek </h2>
             {tickets && ( tickets.map ((ticket) => ( 
-              <TicketWidget key={ticket.id} BoardingStopName={ticket.boardingStopName} DestinationStopName={ticket.destinationStopName} Price={ticket.price} Type={ticket.type}/>
+              <TicketWidget key={ticket.id} BoardingStopName={ticket.boardingStopName} DestinationStopName={ticket.destinationStopName} Price={ticket.price} Type={ticket.type} EmployeeId={ticket.confirmingEmploeeId}/>
             )))}
 
             <Footer/>

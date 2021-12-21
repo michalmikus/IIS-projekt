@@ -32,22 +32,17 @@ export const ListWidget = ( props ) => {
               {
                   alert("Mazanie neuspesne skuste znova.")
               }
-          },
-          )
+          }, 
+          )   
     }
 
     const [carrier, setCarrier] = useState();
 
     const getInfo = async () => {
-
-        if (props.id.search("empolyee") == -1) {
-            localStorage.EmployeeId = props.id.slice(props.id.length - 36);
-        }
-
-        let path
+        let path 
         if (props.id.search("connection") == -1)
         {
-            path = BaseURL.path +'/api/carriers/' + props.id;
+            path = BaseURL.path +'/api/carrier/' + props.id;
             localStorage.carrierID = props.id
         }
         else
@@ -56,7 +51,7 @@ export const ListWidget = ( props ) => {
         localStorage.CarierIdPathAll = path
         localStorage.CarierIdPathCon = BaseURL.path + "/api/carrier/"+props.id
 
-        if (props.id.search("connection") == -1)
+        if ((props.id.search("connection") == -1) && (props.id.search("employees") == -1)  && (props.id.search("vehicles") == -1))
         {
             localStorage.CarrierInfo = BaseURL.path + "/api/carrier/"+props.id
             localStorage.CarriersInfo = BaseURL.path + "/api/carriers/"+props.id
@@ -64,7 +59,7 @@ export const ListWidget = ( props ) => {
         try {
             const res = await fetch(path);
             const datas = await res.json();
-
+            
             console.log("carrier detail", CarrierDetail);
             setCarrier(datas);
         }
@@ -72,8 +67,8 @@ export const ListWidget = ( props ) => {
             console.log("error:", error);
         }
     }
-
-
+ 
+    
 
     return (
 
@@ -81,15 +76,15 @@ export const ListWidget = ( props ) => {
                 <ul className="responsive-table">
                     <li className="table-row">
                     <div className="col col-1" >{props.carrierName}</div>
-
+                    
                     <div className="col col-1" >
                         <ProfileButton link={props.link} label = 'Info' onClick={getInfo}></ProfileButton>
                     </div>
-
+                    
                     <div className="col col-1" >
                         <Button label = 'Odstranit' onClick={handleDelete}></Button>
                     </div>
-
+                    
                     </li>
                 </ul>
             </div>

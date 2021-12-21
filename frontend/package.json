@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "proxy": "https://localhost:7293/"
+    "proxy": "https://transport-is.azurewebsites.net/"
   },
   "eslintConfig": {
     "extends": [

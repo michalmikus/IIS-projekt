@@ -1,5 +1,5 @@
 const BaseURL = {
-    path: "https://localhost:7293"
+    path: "https://transport-is.azurewebsites.net"
 }
 
 export default BaseURL

@@ -13,11 +13,10 @@ function CreateCarrierForm() {
 
     const path = BaseURL.path + '/api/carriers';
 
-    const [carrierId , setCarrierId] = useState()
+    const [carrierId , setCarrierId] = useState("")
 
     const sendJSON = async (object) => {
 
-        console.log(JSON.stringify(object));
 
         const requestOptions = {
             method: 'POST',
@@ -28,7 +27,8 @@ function CreateCarrierForm() {
         try {
             const res = await fetch(path, requestOptions);
             const datas = await res.json();
-            console.log("loginForm:", ConnectionInfo.url);
+            console.log("loginForm:", datas);
+            return datas
         }
         catch (error) {
             console.log("error:", error);
@@ -36,11 +36,13 @@ function CreateCarrierForm() {
 
     }
 
-    const sendCarrierJSON = async (object) => {
+    const sendCarrierJSON = async (object,carrierInfo) => {
 
-        console.log(JSON.stringify(object));
+        console.log("sendCarrierData:",JSON.stringify(object));
 
-        const pathCarrier = BaseURL.path + '/api/carriers/'+carrierId+"/employees/register-employee";
+        console.log("newCarrierId:",carrierInfo);
+
+        const pathCarrier = BaseURL.path + '/api/carrier/'+carrierInfo.id+"/employees/register-employee";
 
         const requestOptions = {
             method: 'POST',
@@ -49,16 +51,16 @@ function CreateCarrierForm() {
         };
 
         try {
-            const res = await fetch(path, requestOptions);
+            const res = await fetch(pathCarrier, requestOptions);
             const datas = await res.json();
-            console.log("carrierId:",carrierId)
-            setCarrierId(datas.Id);
+            console.log("Spravca :",datas)
+            
         }
         catch (error) {
             console.log("error:", error);
         }
-        localStorage.CarierIdPathCon = BaseURL.path + '/api/carrier/'+carrierId
-        localStorage.CarierIdPathAll = BaseURL.path + '/api/carriers/'+carrierId
+        localStorage.CarierIdPathCon = BaseURL.path + '/api/carrier/'+carrierInfo.id
+        localStorage.CarierIdPathAll = BaseURL.path + '/api/carriers/'+carrierInfo.id
         
     }
 
@@ -104,11 +106,12 @@ function CreateCarrierForm() {
             PublicRelationsContact: state.pr_conntact
         }
 
-        console.log(JSON.stringify(registrationModel));
+        console.log("carrierModel:",JSON.stringify(carrierModel));
+        console.log("registrationModel:",JSON.stringify(registrationModel));
+        
 
-        sendCarrierJSON(carrierModel)
-
-        sendJSON(registrationModel);
+        sendJSON(carrierModel).then(result => sendCarrierJSON(registrationModel,result))
+ 
         
         setState({fullname: "",login: "", email: "", password: "", address_field: "", phone_number: "",taxnumber: "", telephonenumber: "", pr_conntact: "", country: ""});
 

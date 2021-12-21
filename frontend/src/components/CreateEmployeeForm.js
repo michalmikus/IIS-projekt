@@ -10,7 +10,7 @@ function EmployeeForm() {
     
     const [state, setState] = useState({fullname: "",login: "", email: "", password: "", address_field: "", phone_number: ""});
 
-    const path = localStorage.CarierIdPathCon + "/employees/register-employee";
+    const path = localStorage.CarrierInfo + "/employees/register-employee";
 
     const sendJSON = async (object) => {
 

@@ -42,7 +42,7 @@ const Header = () => {
     if(localStorage.SignedIn === "true") {
       return (
         <header>
-          <a href="https://transport-is-fronted.azurewebsites.net/">
+              <a href={"https://transport-is-fronted.azurewebsites.net/"}>
           <img src={bus_img} alt="autobus"></img>
            </a>
            <div class="header_links">
@@ -58,7 +58,7 @@ const Header = () => {
     else {
       return (
         <header>
-          <a href="https://transport-is-fronted.azurewebsites.net/">
+              <a href="https://transport-is-fronted.azurewebsites.net/">
           <img src={bus_img} alt="autobus"></img>
            </a>
            <div class="header_links">
