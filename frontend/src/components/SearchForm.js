@@ -51,6 +51,27 @@ const SearchForm = () => {
         }
     }
 
+    const searchByStop = (e) => {
+
+        localStorage.ConnectionId = selectedID;
+        localStorage.Time  = selectedTime;
+
+        const requestOptions = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+          };
+
+          if(selectedTime == undefined || selectedID == undefined) {
+            alert("Zadejte čas a parametry spoje prosím.");
+          }
+
+          else {
+
+          navigate('/connections');
+
+        }
+    }
+
     return (
 
         <form id="search_form">
